@@ -88,3 +88,72 @@ a:hover { text-decoration:underline; }
 </div>
 
 <a href="https://YOURAFFILIATEURL.com" id="stickyCTA" class="btn-cta">Check Now →</a>
+  <script>
+// ==== Affiliate link ==== 
+const AFFILIATE_URL = "https://YOURAFFILIATEURL.com";
+
+// ==== Countries ====
+const countries = ["United States","Canada","United Kingdom","Australia","Germany","France","India","Brazil","Japan","Mexico","Italy","Spain","China","South Africa","Netherlands","Sweden","Norway","Switzerland","Belgium","New Zealand"];
+
+// ==== Cities (example data) ====
+const cities = ["New York","Los Angeles","London","Paris","Tokyo","Beijing","Sydney","Toronto","Berlin","Madrid","Rome"];
+
+// ==== Daily Tips Multilingual ====
+const tips = {
+  en:["Check your coverage daily.","Use postal codes for precise results.","Explore new cities for insights."],
+  es:["Verifica tu cobertura diariamente.","Usa códigos postales para resultados precisos.","Explora nuevas ciudades para obtener información."],
+  fr:["Vérifiez votre couverture quotidiennement.","Utilisez des codes postaux pour des résultats précis.","Explorez de nouvelles villes pour plus d'informations."]
+};
+
+// ==== Set daily tip ====
+const userLang = navigator.language.slice(0,2); // detect user language
+const langTips = tips[userLang] || tips["en"];
+document.getElementById("dailyTip").textContent = langTips[new Date().getDate() % langTips.length];
+
+// ==== Debounce helper ====
+function debounce(func, delay){ let timer; return function(...args){ clearTimeout(timer); timer = setTimeout(()=>func.apply(this,args),delay); }; }
+
+// ==== Country Lookup ====
+document.getElementById("countrySearch").addEventListener("input", debounce(function(){
+  const input = this.value.trim().toLowerCase();
+  const msg = document.getElementById("countryMessage");
+  if(!input){ msg.textContent=""; return; }
+  const found = countries.some(c=>c.toLowerCase()===input);
+  msg.innerHTML = found
+    ? `✅ Supported country: <strong>${input}</strong>. <a href="${AFFILIATE_URL}">Check →</a>`
+    : `⚠️ Coverage may be limited in <strong>${input}</strong>. <a href="${AFFILIATE_URL}">Try →</a>`;
+}, 300));
+
+// ==== City Lookup ====
+document.getElementById("citySearch").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("cityMessage");
+  if(!input){ msg.textContent=""; return; }
+  const found = cities.some(c=>c.toLowerCase()===input.toLowerCase());
+  msg.innerHTML = found
+    ? `✅ Service likely available in <strong>${input}</strong>. <a href="${AFFILIATE_URL}">Check →</a>`
+    : `⚠️ Coverage uncertain in <strong>${input}</strong>. <a href="${AFFILIATE_URL}">Try →</a>`;
+},300));
+
+// ==== Postal Code Lookup ====
+document.getElementById("postalSearch").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("postalMessage");
+  if(!input){ msg.textContent=""; return; }
+  const valid = /^[A-Za-z0-9 \-]{3,10}$/.test(input);
+  msg.innerHTML = valid
+    ? `✅ Service likely available for postal code <strong>${input}</strong>. <a href="${AFFILIATE_URL}">Check →</a>`
+    : "⚠️ Enter a valid postal code.";
+},300));
+
+// ==== Scroll Progress ====
+window.onscroll = function() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+};
+
+// ==== Sticky CTA click ====
+document.getElementById("stickyCTA").addEventListener("click",()=>window.location.href=AFFILIATE_URL);
+</script>

@@ -6,34 +6,69 @@
 <title>Flight Finder - Compare Flights Worldwide</title>
 <meta name="description" content="Compare flight prices worldwide with our Flight Finder. Get today’s estimated prices and yesterday’s ranges. Top airlines and travel platforms included.">
 <meta name="robots" content="index, follow">
-<!-- Structured FAQ for SEO -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"What is Flight Finder?","acceptedAnswer":{"@type":"Answer","text":"Flight Finder is a platform to estimate flight prices and compare top airlines worldwide."}},
-    {"@type":"Question","name":"Are the prices accurate?","acceptedAnswer":{"@type":"Answer","text":"Prices are estimates based on yesterday's range and today’s data. Click 'Book Now' to check live prices via Skyscanner."}},
-    {"@type":"Question","name":"Do I need an account?","acceptedAnswer":{"@type":"Answer","text":"No account is needed to use the Flight Finder or check flight prices."}},
-    {"@type":"Question","name":"Is it free?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Flight Finder tool is free to use. Booking links redirect to Skyscanner affiliate page."}}
-  ]
-}
-</script>
+
 <style>
-body { font-family: Arial, sans-serif; margin:0; padding:20px; background:#f4f4f4; color:#333; }
-section { max-width:900px; margin:20px auto; padding:20px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1);}
+body {
+  font-family: Arial, sans-serif;
+  margin:0; padding:0;
+  background:#0c1d3a;
+  color:#f4f4f4;
+}
+section {
+  max-width:900px;
+  margin:20px auto;
+  padding:20px;
+  background:#1e2a4d;
+  border-radius:8px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.3);
+}
 .language-section { display:none; }
 .language-section.active { display:block; }
-button { padding:6px 12px; margin:2px; cursor:pointer; border-radius:4px; border:1px solid #ccc; background:#fff; }
-#flight-widget { position: fixed; top:20px; right:20px; width:280px; background:#00a9e0; color:#fff; padding:15px; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.2); z-index:999; font-family: Arial, sans-serif;}
-#flight-widget h3 { margin-top:0; font-size:16px; color:#fff; }
-#flight-widget input { width:100%; padding:6px; margin-top:8px; border-radius:4px; border:none; }
-#flight-widget button { width:100%; margin-top:10px; background:#007bbd; color:#fff; border:none; padding:8px; border-radius:4px; cursor:pointer; }
-#flight-answer { margin-top:10px; background:#fff; color:#000; padding:8px; border-radius:4px; font-size:14px; }
-h1 a { text-decoration:none; color:#007bbd; }
+button {
+  padding:6px 12px; margin:2px; cursor:pointer;
+  border-radius:4px; border:1px solid #ccc;
+  background:#0c1d3a; color:#fff;
+}
+h1 a,h2 a,h3 a,p a,li a {
+  color:#00b0ff;
+  text-decoration:none;
+}
+h1 a:hover,h2 a:hover,h3 a:hover,li a:hover { text-decoration:underline; }
 ul { margin-left:20px; }
 .airline-logo { width:24px; vertical-align:middle; margin-right:6px; }
-.daily-tip { background:#fff8c4; padding:10px; border-radius:5px; margin:10px 0; font-weight:bold; }
+.daily-tip { background:#ffc; color:#000; padding:10px; border-radius:5px; margin:10px 0; font-weight:bold; }
+footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
+
+/* Flight Widget */
+#flight-widget {
+  position: fixed; top:20px; right:20px;
+  width:300px;
+  background: rgba(0,62,128,0.95);
+  color:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.6);
+  z-index:999;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+#flight-widget:hover {
+  transform: translateY(-5px);
+  box-shadow:0 12px 36px rgba(0,0,0,0.7);
+}
+#flight-widget h3 { margin-top:0; font-size:16px; color:#fff; }
+#flight-widget input { width:100%; padding:8px; margin-top:8px; border-radius:6px; border:none; }
+#flight-widget button { width:100%; margin-top:12px; background:#0090e0; color:#fff; border:none; padding:10px; border-radius:6px; cursor:pointer; font-weight:bold; transition: background 0.3s; }
+#flight-widget button:hover { background:#00b0ff; }
+#flight-answer { margin-top:12px; background:#fff; color:#000; padding:10px; border-radius:6px; font-size:14px; }
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px){
+  #flight-widget { width:90%; right:5%; top:auto; bottom:20px; }
+}
+
+/* Current Date Styling */
+.current-date { font-weight:bold; color:#00b0ff; }
 </style>
 </head>
 <body>
@@ -49,24 +84,51 @@ ul { margin-left:20px; }
 
 <!-- Sections -->
 <section id="en" class="language-section active">
-  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Compare Today’s Best Prices</a> <span style="font-size:14px;color:#555;">(Updated: <span class="current-date"></span>)</span></h1>
-  <p>Use our Flight Finder to compare prices on 200+ global routes. Get estimated prices today and yesterday's range to make informed booking decisions.</p>
+  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Compare Today’s Best Prices</a> <span class="current-date"></span></h1>
+  <p>Use our <a href="https://is.gd/et9lWW" target="_blank">Flight Finder</a> to compare prices on 200+ global routes. Get estimated prices today and yesterday's range to make informed booking decisions.</p>
   <div class="daily-tip" id="tip-en"></div>
-  <h2>Top Airlines & Platforms</h2>
+  <h2><a href="https://is.gd/et9lWW" target="_blank">Top Airlines & Platforms</a></h2>
   <ul>
-    <li><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Delta_Air_Lines_logo.svg" alt="Delta"> Delta</li>
-    <li><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Emirates_logo.svg" alt="Emirates"> Emirates</li>
-    <li><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Qatar_Airways_Logo.svg" alt="Qatar Airways"> Qatar Airways</li>
-    <li><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/British_Airways_Logo.svg" alt="British Airways"> British Airways</li>
-    <li><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Lufthansa_Logo_2018.svg" alt="Lufthansa"> Lufthansa</li>
-    <li>Skyscanner.com & Skyscanner.net (affiliate enabled)</li>
+    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Delta_Air_Lines_logo.svg">Delta</a></li>
+    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Emirates_logo.svg">Emirates</a></li>
+    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Qatar_Airways_Logo.svg">Qatar Airways</a></li>
+    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/British_Airways_Logo.svg">British Airways</a></li>
+    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Lufthansa_Logo_2018.svg">Lufthansa</a></li>
+    <li><a href="https://is.gd/et9lWW" target="_blank">Skyscanner.com & Skyscanner.net</a></li>
   </ul>
-  <h2>Popular Routes</h2>
+  <h2><a href="https://is.gd/et9lWW" target="_blank">Popular Routes</a></h2>
   <ul id="route-list-en"></ul>
 </section>
 
-<!-- Other languages will duplicate English section structure -->
-<!-- For brevity, only English fully shown; others can be generated similarly -->
+<!-- Similar sections for zh, ru, es, fr (same structure, only text changed) -->
+<section id="zh" class="language-section">
+  <h1><a href="https://is.gd/et9lWW" target="_blank">航班查找器 - 比较今日最佳价格</a> <span class="current-date"></span></h1>
+  <p>使用<a href="https://is.gd/et9lWW" target="_blank">航班查找器</a>比较全球200+航线的价格。</p>
+  <div class="daily-tip" id="tip-zh"></div>
+  <h2><a href="https://is.gd/et9lWW" target="_blank">顶级航空公司 & 平台</a></h2>
+  <ul id="route-list-zh"></ul>
+</section>
+
+<section id="ru" class="language-section">
+  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Сравнение цен на билеты</a> <span class="current-date"></span></h1>
+  <div class="daily-tip" id="tip-ru"></div>
+  <h2><a href="https://is.gd/et9lWW" target="_blank">Топ авиакомпаний и платформ</a></h2>
+  <ul id="route-list-ru"></ul>
+</section>
+
+<section id="es" class="language-section">
+  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Comparar precios de vuelos</a> <span class="current-date"></span></h1>
+  <div class="daily-tip" id="tip-es"></div>
+  <h2><a href="https://is.gd/et9lWW" target="_blank">Principales aerolíneas y plataformas</a></h2>
+  <ul id="route-list-es"></ul>
+</section>
+
+<section id="fr" class="language-section">
+  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Comparer les prix des vols</a> <span class="current-date"></span></h1>
+  <div class="daily-tip" id="tip-fr"></div>
+  <h2><a href="https://is.gd/et9lWW" target="_blank">Principales compagnies aériennes et plateformes</a></h2>
+  <ul id="route-list-fr"></ul>
+</section>
 
 <!-- Flight Widget -->
 <div id="flight-widget">
@@ -76,53 +138,72 @@ ul { margin-left:20px; }
   <div id="flight-answer"></div>
 </div>
 
-<footer style="text-align:center; padding:20px; font-size:14px; color:#666;">
-  © 2026 Flight Finder. Compare, book, and save on flights worldwide.
+<footer>
+  © 2026 <a href="https://is.gd/et9lWW" target="_blank">Flight Finder</a>. Compare, book, and save on flights worldwide.
 </footer>
 
 <script>
 // Language switcher
 function switchLang(lang){
-  document.querySelectorAll('.language-section').forEach(sec => sec.classList.remove('active'));
-  document.getElementById(lang).classList.add('active');
+  document.querySelectorAll('.language-section').forEach(sec=>sec.classList.remove('active'));
+  const section=document.getElementById(lang);
+  if(section) section.classList.add('active');
 }
 
-// Current date
-const today = new Date();
-document.querySelectorAll('.current-date').forEach(el => el.textContent = today.toLocaleDateString());
+// Live Current Date
+function updateCurrentDate(){
+  const now = new Date();
+  const dateString = now.toLocaleDateString(undefined,{ weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit', second:'2-digit' });
+  document.querySelectorAll('.current-date').forEach(el=>el.textContent=dateString);
+}
+updateCurrentDate();
+setInterval(updateCurrentDate,1000);
 
 // Daily tips
-const tips = {
+const tips={
   en:["Book early for best deals.","Check multiple airlines for savings.","Use flexible dates for cheaper flights.","Compare 200+ routes easily.","Check yesterday’s prices to spot trends.","Skyscanner helps you find the best flights."],
-  zh:["提前预订以获得最佳优惠。","比较多家航空公司节省开支。","灵活日期可获得更便宜机票。","轻松比较200多条航线。","查看昨日价格以发现趋势。","Skyscanner帮助您找到最佳航班。"]
-  // Add ru, es, fr similarly
+  zh:["提前预订以获得最佳优惠。","比较多家航空公司节省开支。","灵活日期可获得更便宜机票。","轻松比较200多条航线。","查看昨日价格以发现趋势。","Skyscanner帮助您找到最佳航班。"],
+  ru:["Бронируйте заранее для лучших цен.","Сравнивайте несколько авиакомпаний.","Используйте гибкие даты для экономии.","Сравнивайте 200+ маршрутов.","Проверяйте вчерашние цены для тренда.","Skyscanner поможет найти лучшие рейсы."],
+  es:["Reserva temprano para mejores ofertas.","Revisa varias aerolíneas para ahorrar.","Usa fechas flexibles para vuelos más baratos.","Compara 200+ rutas fácilmente.","Mira los precios de ayer para tendencias.","Skyscanner te ayuda a encontrar los mejores vuelos."],
+  fr:["Réservez tôt pour de meilleures offres.","Comparez plusieurs compagnies aériennes.","Utilisez des dates flexibles pour moins cher.","Comparez plus de 200 itinéraires.","Vérifiez les prix d'hier pour repérer les tendances.","Skyscanner vous aide à trouver les meilleurs vols."]
 };
-['en','zh'].forEach(lang=>{
-  const tipIndex = today.getDate() % tips[lang].length;
-  const el = document.getElementById('tip-'+lang);
-  if(el) el.textContent = tips[lang][tipIndex];
+['en','zh','ru','es','fr'].forEach(lang=>{
+  const tipArray=tips[lang];
+  const tipIndex=new Date().getDate()%tipArray.length;
+  const el=document.getElementById('tip-'+lang);
+  if(el) el.textContent=tipArray[tipIndex];
+});
+
+// Popular Routes
+const popularRoutes={
+  en:["NYC → Barcelona","NYC → London","NYC → Paris","LAX → Sydney","LAX → Tokyo","SFO → Tokyo","SFO → Singapore","SFO → Sydney","SFO → London","SFO → Paris"],
+  zh:["纽约 → 巴塞罗那","纽约 → 伦敦","纽约 → 巴黎","洛杉矶 → 悉尼","洛杉矶 → 东京","旧金山 → 东京","旧金山 → 新加坡","旧金山 → 悉尼","旧金山 → 伦敦","旧金山 → 巴黎"],
+  ru:["NYC → Барселона","NYC → Лондон","NYC → Париж","LAX → Сидней","LAX → Токио","SFO → Токио","SFO → Сингапур","SFO → Сидней","SFO → Лондон","SFO → Париж"],
+  es:["NYC → Barcelona","NYC → Londres","NYC → París","LAX → Sídney","LAX → Tokio","SFO → Tokio","SFO → Singapur","SFO → Sídney","SFO → Londres","SFO → París"],
+  fr:["NYC → Barcelone","NYC → Londres","NYC → Paris","LAX → Sydney","LAX → Tokyo","SFO → Tokyo","SFO → Singapour","SFO → Sydney","SFO → Londres","SFO → Paris"]
+};
+['en','zh','ru','es','fr'].forEach(lang=>{
+  const listEl=document.getElementById('route-list-'+lang);
+  if(listEl){
+    popularRoutes[lang].forEach(route=>{
+      const li=document.createElement('li');
+      li.innerHTML=`<a href="https://is.gd/et9lWW" target="_blank">${route}</a>`;
+      listEl.appendChild(li);
+    });
+  }
 });
 
 // Flight prices
-const basePrices = {"nyc-barcelona":480,"nyc-london":420,"nyc-paris":430,"lax-sydney":900,"lax-tokyo":850,"sfo-tokyo":780};
-const yesterdayPrices = {};
-for (let route in basePrices){
-  const fluct = Math.floor(Math.random()*50-25);
-  yesterdayPrices[route] = "$"+(basePrices[route]+fluct)+"-"+(basePrices[route]+fluct+50);
+const basePrices={"nyc-barcelona":480,"nyc-london":420,"nyc-paris":430,"lax-sydney":900,"lax-tokyo":850,"sfo-tokyo":780};
+const yesterdayPrices={};
+for(let route in basePrices){
+  const fluct=Math.floor(Math.random()*50-25);
+  yesterdayPrices[route]="$"+(basePrices[route]+fluct)+"-"+(basePrices[route]+fluct+50);
 }
 
-// Popular routes
-const popularRoutes = ["NYC → Barcelona","NYC → London","NYC → Paris","LAX → Sydney","LAX → Tokyo","SFO → Tokyo","SFO → Singapore","SFO → Sydney","SFO → London","SFO → Paris"];
-const routeList = document.getElementById('route-list-en');
-popularRoutes.forEach(r=>{
-  const li = document.createElement('li');
-  li.textContent=r;
-  routeList.appendChild(li);
-});
-
-// Widget function
+// Flight widget function
 function getFlightPrice(){
-  let input=document.getElementById("flight-query").value.toLowerCase().replace(/\s+/g,'-');
+  let input=document.getElementById("flight-query").value.toLowerCase().replace(/\s+to\s+/,'-').replace(/\s+/g,'-');
   const answerEl=document.getElementById("flight-answer");
   if(basePrices[input]){
     answerEl.innerHTML=`<strong>Estimated Price Today:</strong> $${basePrices[input]}<br>

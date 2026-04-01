@@ -89,3 +89,54 @@ for (let route in basePrices) {
 }
 
 // Multi
+// Multi-language switcher
+function switchLang(lang){
+  document.querySelectorAll('.language-section').forEach(sec => sec.classList.remove('active'));
+  document.getElementById(lang).classList.add('active');
+}
+
+// Flight price query
+function getFlightPrice(){
+  const input = document.getElementById('flight-query').value.trim().toLowerCase().replace(/\s+/g, '-');
+  const answerDiv = document.getElementById('flight-answer');
+  if(basePrices[input]){
+    const todayPrice = "$" + basePrices[input];
+    const yesterdayPrice = yesterdayPrices[input];
+    answerDiv.innerHTML = `
+      <p><strong>Estimated price today:</strong> ${todayPrice}</p>
+      <p><strong>Yesterday's range:</strong> ${yesterdayPrice}</p>
+      <p><a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Book Now →</a></p>
+    `;
+  } else {
+    answerDiv.innerHTML = `<p>Sorry, route not found. Try another route!</p>`;
+  }
+}
+</script>
+
+<!-- SEO & Content Section -->
+<section style="margin-top:40px;">
+<h2>Why use our Flight Finder?</h2>
+<ul>
+  <li>✅ Over 200 global routes covered</li>
+  <li>✅ Multi-language support for global travelers</li>
+  <li>✅ Realistic yesterday vs today prices to guide your booking</li>
+  <li>✅ Fast, single-page experience</li>
+  <li>✅ Secure affiliate booking with trusted link</li>
+</ul>
+
+<h2>Top Airlines & Platforms</h2>
+<p>We compare major airlines and travel platforms including:</p>
+<ul>
+<li>Delta, United, American Airlines, Emirates, Qatar Airways, Lufthansa</li>
+<li>Skyscanner.com & Skyscanner.net (affiliate enabled)</li>
+<li>British Airways, Air France, KLM, Singapore Airlines, Qantas</li>
+</ul>
+<p>Use the box above to instantly find your route price!</p>
+</section>
+
+<footer style="text-align:center; margin-top:50px; padding:20px;">
+<p>© 2026 Flight Finder. Compare, book, and save on flights worldwide.</p>
+</footer>
+
+</body>
+</html>

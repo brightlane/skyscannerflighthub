@@ -2477,3 +2477,29 @@ document.getElementById("cityRankSearchBottom").addEventListener("input", deboun
   }
 },300));
 </script>
+<!-- ====== STICKY BOTTOM CTA START ====== -->
+<a href="YOUR_AFFILIATE_URL" id="stickyBottomCTA" class="btn-cta" style="
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  background:#ffcc00;
+  color:#000;
+  font-weight:bold;
+  padding:20px 0;
+  text-decoration:none;
+  z-index:10000;
+  box-shadow:0 -4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+">Check Your Region Now →</a>
+
+<script>
+// Simple pulse animation for the sticky CTA
+const stickyCTA = document.getElementById("stickyBottomCTA");
+setInterval(() => {
+  stickyCTA.style.transform = "scale(1.05)";
+  setTimeout(()=>{stickyCTA.style.transform="scale(1)";},300);
+}, 1500);
+</script>
+<!-- ====== STICKY BOTTOM CTA END ====== -->

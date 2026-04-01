@@ -3,9 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flight Finder - Compare Flights Worldwide</title>
-<meta name="description" content="Compare flight prices worldwide with Flight Finder. Get today’s estimated prices and yesterday’s ranges. Top airlines and travel platforms included.">
+<title>Flight Finder - Compare Flights Worldwide | Best Airline Deals</title>
+<meta name="description" content="Compare flight prices worldwide with Flight Finder. Get today’s estimated prices, yesterday’s price ranges, and top airline deals. Book your flight easily.">
 <meta name="robots" content="index, follow">
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Flight Finder",
+  "url": "https://is.gd/et9lWW",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://is.gd/et9lWW?q={query}",
+    "query-input": "required name=query"
+  }
+}
+</script>
 
 <style>
 body {
@@ -13,39 +28,37 @@ body {
   margin:0; padding:0;
   background: linear-gradient(135deg, #0c1d3a, #162b5b);
   color:#f4f4f4;
-  transition: background 0.5s;
 }
+main { max-width:900px; margin:20px auto; padding:20px; }
 section {
-  max-width:900px;
-  margin:20px auto;
-  padding:20px;
+  margin-bottom:30px;
+  padding:22px;
   background: linear-gradient(145deg,#1e2a4d,#283763);
-  border-radius:12px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.5);
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
   transition: transform 0.3s, box-shadow 0.3s;
 }
-section:hover { transform: translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,0.6); }
-button {
-  padding:6px 12px; margin:2px; cursor:pointer;
-  border-radius:4px; border:1px solid #ccc;
-  background:#0c1d3a; color:#fff;
-  transition: background 0.3s, transform 0.2s;
+section:hover { transform: translateY(-4px); box-shadow:0 15px 30px rgba(0,0,0,0.6); }
+
+h1 a { color:#00b0ff; text-decoration:none; font-size:1.8rem; }
+h1 a:hover { color:#00e0ff; text-decoration:underline; }
+.current-date {
+  display:block;
+  font-size:0.85rem;
+  color:#66c2ff;
+  margin-top:5px;
+  margin-bottom:15px;
 }
-button:hover { background:#0090e0; transform:scale(1.05); }
-h1 a,h2 a,h3 a,p a,li a,.daily-tip a {
-  color:#00b0ff;
-  text-decoration:none;
-  transition: color 0.3s;
-}
-h1 a:hover,h2 a:hover,h3 a:hover,li a:hover,.daily-tip a:hover { text-decoration:underline; color:#00e0ff; }
-ul { margin-left:20px; }
-.airline-logo { width:24px; vertical-align:middle; margin-right:6px; }
+h2 { color:#00b0ff; margin-top:35px; margin-bottom:12px; }
+h2 a { color:inherit; text-decoration:none; }
+h2 a:hover { text-decoration:underline; }
+
 .daily-tip {
   background: linear-gradient(90deg,#ffeb3b,#ffd740);
   color:#000;
-  padding:12px;
-  border-radius:10px;
-  margin:12px 0;
+  padding:14px;
+  border-radius:12px;
+  margin:14px 0;
   font-weight:bold;
   cursor:pointer;
   text-align:center;
@@ -57,56 +70,58 @@ ul { margin-left:20px; }
   box-shadow:0 8px 24px rgba(0,0,0,0.5);
   background: linear-gradient(90deg,#ffd740,#ffeb3b);
 }
-footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
 
-/* Flight Widget */
-#flight-widget {
-  position: fixed; top:20px; right:20px;
-  width:300px;
-  background: linear-gradient(135deg, rgba(0,62,128,0.95), rgba(0,92,180,0.95));
-  color:#fff;
-  padding:20px;
-  border-radius:16px;
-  box-shadow:0 12px 36px rgba(0,0,0,0.6);
-  z-index:999;
-  font-family: Arial, sans-serif;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-#flight-widget:hover { transform: translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.7); }
-#flight-widget h3 { margin-top:0; font-size:16px; color:#fff; }
-#flight-widget input { width:100%; padding:8px; margin-top:8px; border-radius:8px; border:none; }
-#flight-widget button { width:100%; margin-top:12px; background:#0090e0; color:#fff; border:none; padding:10px; border-radius:8px; cursor:pointer; font-weight:bold; transition: background 0.3s, transform 0.2s; }
-#flight-widget button:hover { background:#00b0ff; transform:scale(1.05); }
-#flight-answer { margin-top:12px; background:#fff; color:#000; padding:10px; border-radius:8px; font-size:14px; cursor:pointer; }
+ul { margin-left:20px; }
+ul li a { color:#00b0ff; text-decoration:none; transition: color 0.3s; display:flex; align-items:center; }
+ul li a:hover { color:#00e0ff; text-decoration:underline; }
+.airline-logo { width:28px; vertical-align:middle; margin-right:8px; transition: transform 0.3s; }
+ul li a:hover .airline-logo { transform: scale(1.1); }
 
-/* Mobile adjustments */
-@media screen and (max-width: 768px){
-  #flight-widget { width:90%; right:5%; top:auto; bottom:20px; }
-}
-
-/* Current Date Styling */
-.current-date { font-weight:bold; color:#00b0ff; }
-
-/* Cheap deals & trending routes */
-#cheap-deals h3, #trending-routes h3 { margin-top:0; color:#00b0ff; }
 #cheap-deals div, #trending-routes div {
   cursor:pointer;
-  padding:10px;
-  border-radius:8px;
+  padding:12px;
+  border-radius:10px;
   margin:6px 0;
   background: linear-gradient(120deg,#1e2a4d,#283763);
   transition: background 0.3s, transform 0.2s;
+  display:flex; align-items:center; font-weight:bold;
 }
 #cheap-deals div:hover, #trending-routes div:hover {
   background: linear-gradient(120deg,#00b0ff,#00e0ff);
   color:#000;
-  transform: translateX(5px);
+  transform: translateX(6px);
 }
+#cheap-deals div::before, #trending-routes div::before {
+  content:'✈️';
+  margin-right:8px;
+  font-size:1.1rem;
+}
+
+#flight-widget {
+  position: fixed; top:20px; right:20px;
+  width:320px;
+  background: linear-gradient(135deg, rgba(0,62,128,0.95), rgba(0,92,180,0.95));
+  color:#fff;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 15px 38px rgba(0,0,0,0.6);
+  z-index:999;
+}
+#flight-widget h3 { margin-top:0; font-size:16px; color:#fff; }
+#flight-widget input { width:100%; padding:10px; margin-top:8px; border-radius:8px; border:none; }
+#flight-widget button { width:100%; margin-top:12px; background:#0090e0; color:#fff; border:none; padding:10px; border-radius:8px; cursor:pointer; font-weight:bold; transition: background 0.3s; }
+#flight-widget button:hover { background:#00b0ff; }
+#flight-answer { margin-top:12px; background:#fff; color:#000; padding:10px; border-radius:8px; font-size:14px; cursor:pointer; }
+
+@media screen and (max-width: 768px){
+  #flight-widget { width:90%; right:5%; top:auto; bottom:20px; }
+}
+
+footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
 </style>
 </head>
 <body>
 
-<!-- Language Switcher -->
 <nav style="text-align:center; margin-bottom:20px;">
   <button onclick="window.open('https://is.gd/et9lWW','_blank')">English</button>
   <button onclick="window.open('https://is.gd/et9lWW','_blank')">中文</button>
@@ -117,13 +132,14 @@ footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
 
 <main>
 <section>
-  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Compare Today’s Best Prices</a> <span class="current-date"></span></h1>
+  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Compare Today’s Best Prices</a></h1>
+  <span class="current-date"></span>
   <p>Use our <a href="https://is.gd/et9lWW" target="_blank">Flight Finder</a> to compare prices on 200+ global routes. Get estimated prices today and yesterday's range to make informed booking decisions.</p>
-  
+
   <div class="daily-tip" onclick="window.open('https://is.gd/et9lWW','_blank')">
     💡 Click here for today’s top flight deals!
   </div>
-  
+
   <h2>Top Airlines & Platforms</h2>
   <ul>
     <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Delta_Air_Lines_logo.svg" alt="Delta Airlines Logo">Delta</a></li>
@@ -134,23 +150,21 @@ footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
   </ul>
 </section>
 
-<!-- Cheap Deals & Trending Routes -->
 <section id="cheap-deals">
   <h3>💸 Cheap Flights Right Now</h3>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">✈️ NYC → Paris — $430</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">✈️ NYC → London — $420</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">✈️ NYC → Barcelona — $480</div>
+  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Paris — $430</div>
+  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → London — $420</div>
+  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Barcelona — $480</div>
 </section>
 
 <section id="trending-routes">
   <h3>📈 Trending Routes</h3>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">🔥 NYC → Tokyo</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">🔥 NYC → Rome</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">🔥 NYC → Dubai</div>
+  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Tokyo</div>
+  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Rome</div>
+  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Dubai</div>
 </section>
 </main>
 
-<!-- Flight Widget -->
 <div id="flight-widget">
   <h3>Check Flight Price</h3>
   <input type="text" id="flight-query" placeholder="NYC to Barcelona">

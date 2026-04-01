@@ -2544,3 +2544,212 @@ footerSelect.addEventListener("change", ()=>{
 });
 </script>
 <!-- ====== LANGUAGE SELECTOR END ====== -->
+<section id="bottom-sections">
+  <script>
+    const AFFILIATE_URL = "https://your-affiliate-link.com";
+    const LANGUAGES = ["en","es","fr","zh","ar","hi"];
+    const CONTENT = {
+      en: [
+        {title:"Discover Global Services",tip:"Instantly check worldwide coverage."},
+        {title:"Fast Country Lookup",tip:"Type your country to see availability."},
+        {title:"City Population Info",tip:"Check population and rank of major cities."},
+        {title:"Postal & Zip Codes",tip:"Find service coverage by postal code."},
+        {title:"Dynamic Search Tools",tip:"Access top search engines worldwide."},
+        {title:"Mobile Friendly",tip:"Use our tools anywhere, anytime."},
+        {title:"Reliable Data",tip:"Accurate info for every location."},
+        {title:"Coverage Updates",tip:"We update our data daily."},
+        {title:"Easy Navigation",tip:"Quickly find the info you need."},
+        {title:"Secure Lookup",tip:"Your queries are private and safe."},
+        {title:"User Trusted",tip:"Thousands trust our lookup tools."},
+        {title:"Instant Feedback",tip:"Get results in seconds."},
+        {title:"Global Cities Index",tip:"Discover ranking and population data."},
+        {title:"Country Stats",tip:"Compare countries by key metrics."},
+        {title:"Postal Lookup",tip:"Check multiple postal codes fast."},
+        {title:"Interactive Maps",tip:"Visualize coverage worldwide."},
+        {title:"Daily Tips",tip:"Helpful hints every day for users."},
+        {title:"Affiliate Offers",tip:"Special offers via our partners."},
+        {title:"Search Engine Access",tip:"Quickly open Google, Bing, Yahoo, and more."},
+        {title:"Coverage Confidence",tip:"Know if your area is supported."},
+        {title:"Responsive Layout",tip:"Optimized for all devices."},
+        {title:"Fast Loading",tip:"No waiting, instant interaction."},
+        {title:"User Friendly",tip:"Simple UI anyone can use."},
+        {title:"Language Support",tip:"Multiple languages available."},
+        {title:"Tips & Tricks",tip:"Learn how to maximize your lookup."},
+        {title:"Affiliate Benefits",tip:"Exclusive deals for our users."},
+        {title:"Global Access",tip:"Check service anywhere on Earth."},
+        {title:"Trusted Info",tip:"Reliable, verified, and up-to-date."},
+        {title:"Easy Copy-Paste",tip:"Sections ready for your landing page."},
+        {title:"Get Started",tip:"Click below to check your location now."}
+      ],
+      es: [
+        {title:"Descubre Servicios Globales",tip:"Verifica cobertura mundial al instante."},
+        {title:"Búsqueda Rápida por País",tip:"Escribe tu país para ver disponibilidad."},
+        {title:"Información de Población de Ciudades",tip:"Consulta población y ranking de ciudades importantes."},
+        {title:"Códigos Postales",tip:"Encuentra cobertura por código postal."},
+        {title:"Herramientas de Búsqueda Dinámica",tip:"Accede a los principales motores de búsqueda."},
+        {title:"Compatible con Móviles",tip:"Usa nuestras herramientas en cualquier lugar."},
+        {title:"Datos Confiables",tip:"Información precisa para cada ubicación."},
+        {title:"Actualizaciones de Cobertura",tip:"Actualizamos datos diariamente."},
+        {title:"Navegación Fácil",tip:"Encuentra la información rápidamente."},
+        {title:"Búsqueda Segura",tip:"Tus consultas son privadas y seguras."},
+        {title:"Confiado por Usuarios",tip:"Miles confían en nuestras herramientas."},
+        {title:"Respuesta Instantánea",tip:"Obtén resultados en segundos."},
+        {title:"Índice de Ciudades Globales",tip:"Descubre rankings y población."},
+        {title:"Estadísticas por País",tip:"Compara países por métricas clave."},
+        {title:"Búsqueda Postal",tip:"Verifica múltiples códigos postales rápido."},
+        {title:"Mapas Interactivos",tip:"Visualiza cobertura mundialmente."},
+        {title:"Consejos Diarios",tip:"Sugerencias útiles cada día."},
+        {title:"Ofertas de Afiliados",tip:"Ofertas especiales de nuestros socios."},
+        {title:"Acceso a Motores de Búsqueda",tip:"Abre Google, Bing, Yahoo y más."},
+        {title:"Confianza en Cobertura",tip:"Sabe si tu área está soportada."},
+        {title:"Diseño Responsivo",tip:"Optimizado para todos los dispositivos."},
+        {title:"Carga Rápida",tip:"Sin esperas, interacción instantánea."},
+        {title:"Fácil de Usar",tip:"Interfaz sencilla para todos."},
+        {title:"Soporte de Idiomas",tip:"Disponible en múltiples idiomas."},
+        {title:"Consejos y Trucos",tip:"Aprende a maximizar tu búsqueda."},
+        {title:"Beneficios de Afiliado",tip:"Ofertas exclusivas para usuarios."},
+        {title:"Acceso Global",tip:"Verifica servicio en cualquier lugar."},
+        {title:"Información Confiable",tip:"Verificada y actualizada."},
+        {title:"Fácil de Copiar-Pegar",tip:"Secciones listas para tu página."},
+        {title:"Comienza Ahora",tip:"Haz clic abajo para verificar tu ubicación."}
+      ]
+    };
+
+    function renderSections(lang="en"){
+      const container = document.getElementById("bottom-sections");
+      container.innerHTML = "";
+      const items = CONTENT[lang] || CONTENT["en"];
+      items.forEach(item=>{
+        const sec = document.createElement("div");
+        sec.className = "tip-box";
+        sec.style.margin="15px 0";
+        sec.innerHTML = `<h3><a href="${AFFILIATE_URL}" style="text-decoration:none;color:#0077cc;">${item.title}</a></h3>
+                         <p><a href="${AFFILIATE_URL}" style="text-decoration:none;color:#333;">${item.tip}</a></p>
+                         <a href="${AFFILIATE_URL}" class="btn-cta">Check →</a>`;
+        container.appendChild(sec);
+      });
+    }
+
+    // Initial render
+    renderSections("en");
+  </script>
+</section>
+
+<!-- Optional language selector -->
+<div style="text-align:center; margin:20px;">
+  <label for="langSelect">Select Language:</label>
+  <select id="langSelect">
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+  </select>
+</div>
+
+<script>
+  document.getElementById("langSelect").addEventListener("change", function(){
+    renderSections(this.value);
+  });
+<section id="bottom-sections">
+  <script>
+    const AFFILIATE_URL = "https://your-affiliate-link.com";
+    const LANGUAGES = ["en","es","fr","zh","ar","hi"];
+    const CONTENT = {
+      en: [
+        {title:"Discover Global Services",tip:"Instantly check worldwide coverage."},
+        {title:"Fast Country Lookup",tip:"Type your country to see availability."},
+        {title:"City Population Info",tip:"Check population and rank of major cities."},
+        {title:"Postal & Zip Codes",tip:"Find service coverage by postal code."},
+        {title:"Dynamic Search Tools",tip:"Access top search engines worldwide."},
+        {title:"Mobile Friendly",tip:"Use our tools anywhere, anytime."},
+        {title:"Reliable Data",tip:"Accurate info for every location."},
+        {title:"Coverage Updates",tip:"We update our data daily."},
+        {title:"Easy Navigation",tip:"Quickly find the info you need."},
+        {title:"Secure Lookup",tip:"Your queries are private and safe."},
+        {title:"User Trusted",tip:"Thousands trust our lookup tools."},
+        {title:"Instant Feedback",tip:"Get results in seconds."},
+        {title:"Global Cities Index",tip:"Discover ranking and population data."},
+        {title:"Country Stats",tip:"Compare countries by key metrics."},
+        {title:"Postal Lookup",tip:"Check multiple postal codes fast."},
+        {title:"Interactive Maps",tip:"Visualize coverage worldwide."},
+        {title:"Daily Tips",tip:"Helpful hints every day for users."},
+        {title:"Affiliate Offers",tip:"Special offers via our partners."},
+        {title:"Search Engine Access",tip:"Quickly open Google, Bing, Yahoo, and more."},
+        {title:"Coverage Confidence",tip:"Know if your area is supported."},
+        {title:"Responsive Layout",tip:"Optimized for all devices."},
+        {title:"Fast Loading",tip:"No waiting, instant interaction."},
+        {title:"User Friendly",tip:"Simple UI anyone can use."},
+        {title:"Language Support",tip:"Multiple languages available."},
+        {title:"Tips & Tricks",tip:"Learn how to maximize your lookup."},
+        {title:"Affiliate Benefits",tip:"Exclusive deals for our users."},
+        {title:"Global Access",tip:"Check service anywhere on Earth."},
+        {title:"Trusted Info",tip:"Reliable, verified, and up-to-date."},
+        {title:"Easy Copy-Paste",tip:"Sections ready for your landing page."},
+        {title:"Get Started",tip:"Click below to check your location now."}
+      ],
+      es: [
+        {title:"Descubre Servicios Globales",tip:"Verifica cobertura mundial al instante."},
+        {title:"Búsqueda Rápida por País",tip:"Escribe tu país para ver disponibilidad."},
+        {title:"Información de Población de Ciudades",tip:"Consulta población y ranking de ciudades importantes."},
+        {title:"Códigos Postales",tip:"Encuentra cobertura por código postal."},
+        {title:"Herramientas de Búsqueda Dinámica",tip:"Accede a los principales motores de búsqueda."},
+        {title:"Compatible con Móviles",tip:"Usa nuestras herramientas en cualquier lugar."},
+        {title:"Datos Confiables",tip:"Información precisa para cada ubicación."},
+        {title:"Actualizaciones de Cobertura",tip:"Actualizamos datos diariamente."},
+        {title:"Navegación Fácil",tip:"Encuentra la información rápidamente."},
+        {title:"Búsqueda Segura",tip:"Tus consultas son privadas y seguras."},
+        {title:"Confiado por Usuarios",tip:"Miles confían en nuestras herramientas."},
+        {title:"Respuesta Instantánea",tip:"Obtén resultados en segundos."},
+        {title:"Índice de Ciudades Globales",tip:"Descubre rankings y población."},
+        {title:"Estadísticas por País",tip:"Compara países por métricas clave."},
+        {title:"Búsqueda Postal",tip:"Verifica múltiples códigos postales rápido."},
+        {title:"Mapas Interactivos",tip:"Visualiza cobertura mundialmente."},
+        {title:"Consejos Diarios",tip:"Sugerencias útiles cada día."},
+        {title:"Ofertas de Afiliados",tip:"Ofertas especiales de nuestros socios."},
+        {title:"Acceso a Motores de Búsqueda",tip:"Abre Google, Bing, Yahoo y más."},
+        {title:"Confianza en Cobertura",tip:"Sabe si tu área está soportada."},
+        {title:"Diseño Responsivo",tip:"Optimizado para todos los dispositivos."},
+        {title:"Carga Rápida",tip:"Sin esperas, interacción instantánea."},
+        {title:"Fácil de Usar",tip:"Interfaz sencilla para todos."},
+        {title:"Soporte de Idiomas",tip:"Disponible en múltiples idiomas."},
+        {title:"Consejos y Trucos",tip:"Aprende a maximizar tu búsqueda."},
+        {title:"Beneficios de Afiliado",tip:"Ofertas exclusivas para usuarios."},
+        {title:"Acceso Global",tip:"Verifica servicio en cualquier lugar."},
+        {title:"Información Confiable",tip:"Verificada y actualizada."},
+        {title:"Fácil de Copiar-Pegar",tip:"Secciones listas para tu página."},
+        {title:"Comienza Ahora",tip:"Haz clic abajo para verificar tu ubicación."}
+      ]
+    };
+
+    function renderSections(lang="en"){
+      const container = document.getElementById("bottom-sections");
+      container.innerHTML = "";
+      const items = CONTENT[lang] || CONTENT["en"];
+      items.forEach(item=>{
+        const sec = document.createElement("div");
+        sec.className = "tip-box";
+        sec.style.margin="15px 0";
+        sec.innerHTML = `<h3><a href="${AFFILIATE_URL}" style="text-decoration:none;color:#0077cc;">${item.title}</a></h3>
+                         <p><a href="${AFFILIATE_URL}" style="text-decoration:none;color:#333;">${item.tip}</a></p>
+                         <a href="${AFFILIATE_URL}" class="btn-cta">Check →</a>`;
+        container.appendChild(sec);
+      });
+    }
+
+    // Initial render
+    renderSections("en");
+  </script>
+</section>
+
+<!-- Optional language selector -->
+<div style="text-align:center; margin:20px;">
+  <label for="langSelect">Select Language:</label>
+  <select id="langSelect">
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+  </select>
+</div>
+
+<script>
+  document.getElementById("langSelect").addEventListener("change", function(){
+    renderSections(this.value);
+  });
+</script>

@@ -573,3 +573,40 @@ document.getElementById("footerSection").onclick = ()=>window.open(affiliateURL,
   startCountdown("countdownParis", 12);
   startCountdown("countdownDubai", 12);
 </script>
+<!-- CUSTOMER REVIEWS / TESTIMONIALS -->
+<section id="testimonials" style="background:#0b1f4a;color:#f1f1f1;padding:50px 20px;border-radius:10px;margin:20px 0;font-family:Arial,sans-serif;line-height:1.6;text-align:center;">
+
+  <h2 style="margin-bottom:30px;">
+    <a href="https://is.gd/et9lWW" target="_blank" style="color:#ffd700;text-decoration:none;">What Travelers Are Saying – Skyscanner Reviews</a>
+  </h2>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;margin-top:30px;">
+
+    <a href="https://is.gd/et9lWW" target="_blank" style="background:#11275e;padding:25px;width:280px;border-radius:10px;text-decoration:none;color:#ffd700;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <p>"I found the cheapest flights to Europe in minutes! Skyscanner is a lifesaver." – <strong>Emma R.</strong></p>
+    </a>
+
+    <a href="https://is.gd/et9lWW" target="_blank" style="background:#11275e;padding:25px;width:280px;border-radius:10px;text-decoration:none;color:#ffd700;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <p>"Booking multi-city trips has never been easier. Highly recommend!" – <strong>Liam K.</strong></p>
+    </a>
+
+    <a href="https://is.gd/et9lWW" target="_blank" style="background:#11275e;padding:25px;width:280px;border-radius:10px;text-decoration:none;color:#ffd700;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <p>"Skyscanner saved me over $200 on flights. The interface is smooth and fast." – <strong>Sophia M.</strong></p>
+    </a>
+
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="https://is.gd/et9lWW" target="_blank" class="btn-cta" style="background:#ffd700;color:#081742;padding:18px 45px;font-weight:bold;text-decoration:none;border-radius:5px;display:inline-block;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      Submit Your Review →
+    </a>
+  </div>
+
+  <p style="margin-top:40px;font-size:12px;">&copy; <span id="currentYearTestimonials"></span> Skyscanner Affiliate. All rights reserved.</p>
+
+</section>
+
+<script>
+  // Dynamic year for testimonials
+  document.getElementById("currentYearTestimonials").textContent = new Date().getFullYear();
+</script>

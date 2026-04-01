@@ -503,3 +503,73 @@ document.getElementById("footerSection").onclick = ()=>window.open(affiliateURL,
   // Set current year dynamically for Travel Blog section
   document.getElementById("currentYearBlog").textContent = new Date().getFullYear();
 </script>
+<!-- TRAVEL DEALS / FLASH SALE -->
+<section id="travelDeals" style="background:#081742;color:#f1f1f1;padding:50px 20px;border-radius:10px;margin:20px 0;font-family:Arial,sans-serif;line-height:1.6;text-align:center;">
+
+  <h2 style="margin-bottom:20px;">
+    <a href="https://is.gd/et9lWW" target="_blank" style="color:#ffd700;text-decoration:none;">Limited-Time Travel Deals – Book Now with Skyscanner</a>
+  </h2>
+
+  <p style="margin-bottom:40px;">
+    Don’t miss out! Compare flights instantly and grab amazing deals before they expire. Click any deal below to start booking through <a href="https://is.gd/et9lWW" target="_blank" style="color:#ffd700;text-decoration:underline;">Skyscanner</a>.
+  </p>
+
+  <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:20px;">
+
+    <a href="https://is.gd/et9lWW" target="_blank" style="background:#11275e;padding:25px;width:250px;text-align:center;border-radius:10px;text-decoration:none;color:#ffd700;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <h3>New York → London</h3>
+      <p>Flights from $399</p>
+      <p id="countdownNY" style="font-weight:bold;"></p>
+    </a>
+
+    <a href="https://is.gd/et9lWW" target="_blank" style="background:#11275e;padding:25px;width:250px;text-align:center;border-radius:10px;text-decoration:none;color:#ffd700;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <h3>Paris → Tokyo</h3>
+      <p>Flights from $499</p>
+      <p id="countdownParis" style="font-weight:bold;"></p>
+    </a>
+
+    <a href="https://is.gd/et9lWW" target="_blank" style="background:#11275e;padding:25px;width:250px;text-align:center;border-radius:10px;text-decoration:none;color:#ffd700;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      <h3>Dubai → Sydney</h3>
+      <p>Flights from $599</p>
+      <p id="countdownDubai" style="font-weight:bold;"></p>
+    </a>
+
+  </div>
+
+  <div style="margin-top:40px;">
+    <a href="https://is.gd/et9lWW" target="_blank" class="btn-cta" style="background:#ffd700;color:#081742;padding:18px 45px;font-weight:bold;text-decoration:none;border-radius:5px;display:inline-block;transition: transform 0.2s ease, box-shadow 0.2s ease;">
+      View All Deals →
+    </a>
+  </div>
+
+  <p style="margin-top:40px;font-size:12px;">&copy; <span id="currentYearDeals"></span> Skyscanner Affiliate. All rights reserved.</p>
+
+</section>
+
+<script>
+  // Dynamic year
+  document.getElementById("currentYearDeals").textContent = new Date().getFullYear();
+
+  // Countdown timer function
+  function startCountdown(elementId, hours) {
+    const endTime = new Date().getTime() + hours*60*60*1000;
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = endTime - now;
+      if(distance < 0){
+        document.getElementById(elementId).textContent = "Deal expired!";
+        clearInterval(interval);
+        return;
+      }
+      const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((distance % (1000*60*60)) / (1000*60));
+      const s = Math.floor((distance % (1000*60)) / 1000);
+      document.getElementById(elementId).textContent = `⏳ ${h}h ${m}m ${s}s left`;
+    }, 1000);
+  }
+
+  // Start countdowns for each deal (e.g., 12 hours)
+  startCountdown("countdownNY", 12);
+  startCountdown("countdownParis", 12);
+  startCountdown("countdownDubai", 12);
+</script>

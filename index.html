@@ -2034,3 +2034,103 @@ document.getElementById("currentYear").textContent = new Date().getFullYear();
   <h2><a href="https://is.gd/et9lWW" style="color:#ffcc00; text-decoration:none;">Travel Anywhere Safely</a></h2>
   <p>Plan safe travel with tips and guidelines. Click above to check destinations now.</p>
 </section>
+<section id="globalLookup" style="background:#e6f0ff;padding:30px 20px;border-top:3px solid #0077cc;">
+  <h2 style="text-align:center;color:#0077cc;">Check Availability Worldwide</h2>
+
+  <!-- Country Lookup -->
+  <div class="lookup-widget">
+    <p>Enter your country:</p>
+    <input type="text" id="countrySearchBottom" placeholder="e.g. United States">
+    <div id="countryMessageBottom"></div>
+  </div>
+
+  <!-- City Lookup -->
+  <div class="lookup-widget">
+    <p>Enter your city:</p>
+    <input type="text" id="citySearchBottom" placeholder="e.g. New York">
+    <div id="cityMessageBottom"></div>
+  </div>
+
+  <!-- Postal Code Lookup -->
+  <div class="lookup-widget">
+    <p>Enter your postal code / zip code:</p>
+    <input type="text" id="postalSearchBottom" placeholder="e.g. 10001">
+    <div id="postalMessageBottom"></div>
+  </div>
+
+  <a href="YOUR_AFFILIATE_URL" class="btn-cta" style="display:block;margin:20px auto;text-align:center;">Check Your Location →</a>
+</section>
+
+<script>
+// === Affiliate link wrapper ===
+const AFF_LINK = "YOUR_AFFILIATE_URL";
+
+// === Country Data ===
+const allCountries = [
+  "Afghanistan","Albania","Algeria","Andorra","Angola","Argentina","Armenia","Australia","Austria","Azerbaijan",
+  "Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia",
+  "Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada",
+  "Cape Verde","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo","Costa Rica","Croatia",
+  "Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador",
+  "Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia",
+  "Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti",
+  "Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy",
+  "Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Kuwait","Kyrgyzstan","Laos","Latvia",
+  "Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia",
+  "Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco",
+  "Mongolia","Montenegro","Morocco","Mozambique","Myanmar","Namibia","Nauru","Nepal","Netherlands","New Zealand",
+  "Nicaragua","Niger","Nigeria","North Korea","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine",
+  "Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia",
+  "Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia",
+  "Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan",
+  "Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania",
+  "Thailand","Timor-Leste","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda",
+  "Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam",
+  "Yemen","Zambia","Zimbabwe"
+];
+
+// === Postal Codes Example (generic) ===
+function isValidPostal(code){
+  return /^[A-Za-z0-9 \-]{3,10}$/.test(code);
+}
+
+// === City Example Data ===
+// This is just sample. Full global coverage requires JSON fetch.
+const exampleCities = ["New York","London","Paris","Tokyo","Sydney","Toronto","Berlin","Madrid","Rome","Beijing"];
+
+// === Debounce Helper ===
+function debounce(func,delay){let timer; return function(...args){clearTimeout(timer); timer=setTimeout(()=>func.apply(this,args),delay);};}
+
+// === Country Lookup ===
+document.getElementById("countrySearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim().toLowerCase();
+  const msg = document.getElementById("countryMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const found = allCountries.some(c=>c.toLowerCase()===input);
+  msg.innerHTML = found
+    ? `✅ <a href="${AFF_LINK}">${this.value}</a> is supported!`
+    : `⚠️ <a href="${AFF_LINK}">Service may not be available in ${this.value}</a>.`;
+},300));
+
+// === City Lookup ===
+document.getElementById("citySearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("cityMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const found = exampleCities.some(c=>c.toLowerCase()===input.toLowerCase());
+  msg.innerHTML = found
+    ? `✅ <a href="${AFF_LINK}">${input}</a> is likely covered!`
+    : `⚠️ <a href="${AFF_LINK}">Coverage uncertain in ${input}</a>.`;
+},300));
+
+// === Postal Code Lookup ===
+document.getElementById("postalSearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("postalMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const valid = isValidPostal(input);
+  msg.innerHTML = valid
+    ? `✅ <a href="${AFF_LINK}">Postal code ${input}</a> may be covered!`
+    : `⚠️ Enter a valid postal code.`;
+},300));
+</script>

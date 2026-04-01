@@ -2234,3 +2234,50 @@ document.getElementById("postalSearchBottom").addEventListener("input", debounce
     : `⚠️ Enter a valid postal code.`;
 },300));
 </script>
+<section id="cityPopulationSection" style="background:#d9e6ff;padding:30px 20px;border-top:3px solid #0055aa;">
+  <h2 style="text-align:center;color:#0055aa;">City Population & Ranking</h2>
+
+  <div class="lookup-widget">
+    <p>Enter a city to see population & rank:</p>
+    <input type="text" id="cityRankSearch" placeholder="e.g. New York">
+    <div id="cityRankMessage"></div>
+  </div>
+
+  <a href="YOUR_AFFILIATE_URL" class="btn-cta" style="display:block;margin:20px auto;text-align:center;">
+    Check Your City → 
+  </a>
+</section>
+
+<script>
+// Example city population data
+const cityData = {
+  "New York": { population: 8419600, rank: 1 },
+  "Los Angeles": { population: 3980400, rank: 2 },
+  "London": { population: 8982000, rank: 3 },
+  "Paris": { population: 2148000, rank: 4 },
+  "Tokyo": { population: 13929286, rank: 5 },
+  "Beijing": { population: 21542000, rank: 6 },
+  "Sydney": { population: 5312000, rank: 7 },
+  "Toronto": { population: 2732000, rank: 8 },
+  "Berlin": { population: 3769000, rank: 9 },
+  "Madrid": { population: 3266000, rank: 10 },
+  "Rome": { population: 2873000, rank: 11 }
+};
+
+// Debounce helper
+function debounce(func,delay){let timer; return function(...args){clearTimeout(timer); timer=setTimeout(()=>func.apply(this,args),delay);};}
+
+// City population & ranking
+document.getElementById("cityRankSearch").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("cityRankMessage");
+  if(!input){ msg.textContent=""; return; }
+
+  const data = cityData[input];
+  if(data){
+    msg.innerHTML = `📊 <a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a> has a population of <a href="YOUR_AFFILIATE_URL"><strong>${data.population.toLocaleString()}</strong></a> and ranks #<a href="YOUR_AFFILIATE_URL">${data.rank}</a> globally.`;
+  } else {
+    msg.innerHTML = `⚠️ <a href="YOUR_AFFILIATE_URL">Population/ranking data not available for ${input}</a>.`;
+  }
+},300));
+</script>

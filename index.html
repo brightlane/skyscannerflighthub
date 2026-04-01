@@ -2281,3 +2281,199 @@ document.getElementById("cityRankSearch").addEventListener("input", debounce(fun
   }
 },300));
 </script>
+<!-- ====== BOTTOM CONTENT BLOCK START ====== -->
+<section id="bottomSections" style="background:#e6f0ff;padding:30px 20px; border-top:3px solid #0055aa;">
+
+  <!-- 1. Daily Tip -->
+  <div class="tip-box" style="margin-bottom:20px;">
+    💡 Daily Tip: <a href="YOUR_AFFILIATE_URL">Always check your coverage region!</a>
+  </div>
+
+  <!-- 2. Country Lookup -->
+  <div class="lookup-widget" style="margin-bottom:20px;">
+    <p>Enter your country:</p>
+    <input type="text" id="countrySearchBottom" placeholder="e.g. United States">
+    <div id="countryMessageBottom"></div>
+  </div>
+
+  <!-- 3. City Lookup -->
+  <div class="lookup-widget" style="margin-bottom:20px;">
+    <p>Enter your city:</p>
+    <input type="text" id="citySearchBottom" placeholder="e.g. New York">
+    <div id="cityMessageBottom"></div>
+  </div>
+
+  <!-- 4. ZIP / Postal Code Lookup -->
+  <div class="lookup-widget" style="margin-bottom:20px;">
+    <p>Enter ZIP/Postal Code:</p>
+    <input type="text" id="zipSearchBottom" placeholder="e.g. 10001">
+    <div id="zipMessageBottom"></div>
+  </div>
+
+  <!-- 5. City Population & Ranking -->
+  <div class="lookup-widget" style="margin-bottom:20px;">
+    <p>City Population & Rank:</p>
+    <input type="text" id="cityRankSearchBottom" placeholder="e.g. Tokyo">
+    <div id="cityRankMessageBottom"></div>
+  </div>
+
+  <!-- 6. Area Code Lookup -->
+  <div class="lookup-widget" style="margin-bottom:20px;">
+    <p>Enter area code:</p>
+    <input type="text" id="areaCodeSearchBottom" placeholder="e.g. 212">
+    <div id="areaCodeMessageBottom"></div>
+  </div>
+
+  <!-- 7-29. Placeholder SEO / Info Sections -->
+  <!-- You can duplicate/update these 23 more times as needed -->
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Explore top cities for coverage worldwide.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Check service availability in your region.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Find dynamic area codes and postal code lookup.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Discover coverage in major global cities.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Instantly check if your city is supported.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Use our global lookup tools for best results.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Reliable and secure service availability checks.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Coverage insights updated dynamically.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Instant lookup for cities, ZIPs, and countries.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Check postal codes anywhere worldwide.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Top 50 cities ranked by coverage and population.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Find detailed area code info for your location.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Learn which regions have fastest availability.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Explore dynamic city lookup features.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Find which countries are fully supported.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Check population stats before traveling.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Compare major cities and rankings globally.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Instant postal code validation for your city.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Dynamic country lookup tools for travelers.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Check city ranking in population and coverage.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Reliable area and ZIP code information worldwide.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Discover top performing regions for service availability.</a></p>
+  </div>
+  <div class="info-box" style="margin-bottom:20px;">
+    <p><a href="YOUR_AFFILIATE_URL">Coverage insights for global users, always updated.</a></p>
+  </div>
+
+  <!-- 30. Final Call-to-Action -->
+  <div style="text-align:center;margin-top:40px;">
+    <a href="YOUR_AFFILIATE_URL" class="btn-cta">Check Your Region Now →</a>
+  </div>
+
+</section>
+
+<!-- ====== BOTTOM CONTENT BLOCK END ====== -->
+
+<script>
+// Debounce helper
+function debounce(func,delay){let timer; return function(...args){clearTimeout(timer); timer=setTimeout(()=>func.apply(this,args),delay);};}
+
+// Country lookup
+const countries = ["United States","Canada","United Kingdom","Australia","Germany","France","India","Brazil","Japan","Mexico","Italy","Spain","China","South Africa","Netherlands","Sweden","Norway","Switzerland","Belgium","New Zealand"];
+document.getElementById("countrySearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim().toLowerCase();
+  const msg = document.getElementById("countryMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const found = countries.some(c => c.toLowerCase() === input);
+  msg.innerHTML = found
+    ? `✅ Supported country: <a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a>.`
+    : `⚠️ Service may not be available in <a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a>.`;
+},300));
+
+// City lookup
+document.getElementById("citySearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("cityMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  msg.innerHTML = `✅ Service likely available in <a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a>.`;
+},300));
+
+// ZIP lookup
+document.getElementById("zipSearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("zipMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const valid = /^[A-Za-z0-9 \-]{3,10}$/.test(input);
+  msg.innerHTML = valid
+    ? `✅ Coverage likely for postal code <a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a>.`
+    : `⚠️ Enter a valid postal code.`;
+},300));
+
+// Area code lookup
+const areaCodes = ["212","213","310","416","02","20"];
+document.getElementById("areaCodeSearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("areaCodeMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const found = areaCodes.includes(input);
+  msg.innerHTML = found
+    ? `✅ Supported area code <a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a>.`
+    : `⚠️ Area code <a href="YOUR_AFFILIATE_URL">${input}</a> may not be fully supported.`;
+},300));
+
+// City Population & Ranking
+const cityData = {
+  "New York": { population: 8419600, rank: 1 },
+  "Los Angeles": { population: 3980400, rank: 2 },
+  "London": { population: 8982000, rank: 3 },
+  "Paris": { population: 2148000, rank: 4 },
+  "Tokyo": { population: 13929286, rank: 5 },
+  "Beijing": { population: 21542000, rank: 6 },
+  "Sydney": { population: 5312000, rank: 7 },
+  "Toronto": { population: 2732000, rank: 8 },
+  "Berlin": { population: 3769000, rank: 9 },
+  "Madrid": { population: 3266000, rank: 10 }
+};
+document.getElementById("cityRankSearchBottom").addEventListener("input", debounce(function(){
+  const input = this.value.trim();
+  const msg = document.getElementById("cityRankMessageBottom");
+  if(!input){ msg.textContent=""; return; }
+  const data = cityData[input];
+  if(data){
+    msg.innerHTML = `<a href="YOUR_AFFILIATE_URL"><strong>${input}</strong></a> has a population of <a href="YOUR_AFFILIATE_URL">${data.population.toLocaleString()}</a> and ranks #<a href="YOUR_AFFILIATE_URL">${data.rank}</a> globally.`;
+  } else {
+    msg.innerHTML = `⚠️ <a href="YOUR_AFFILIATE_URL">Population/ranking data not available for ${input}</a>.`;
+  }
+},300));
+</script>

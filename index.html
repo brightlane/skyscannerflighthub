@@ -2503,3 +2503,44 @@ setInterval(() => {
 }, 1500);
 </script>
 <!-- ====== STICKY BOTTOM CTA END ====== -->
+<!-- ====== LANGUAGE SELECTOR START ====== -->
+<section style="background:#0077cc;color:#fff;padding:20px;text-align:center;">
+  <h3 style="margin-bottom:15px;">Choose Your Language</h3>
+  <select id="footerLanguageSelect" style="padding:10px 15px;border-radius:5px;border:none;font-size:1rem;">
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+    <option value="fr">French</option>
+    <option value="zh">Chinese</option>
+    <option value="ar">Arabic</option>
+    <option value="hi">Hindi</option>
+  </select>
+  <p style="margin-top:10px; font-size:0.9rem;">💡 Tip: <span id="footerDailyTip"></span></p>
+</section>
+
+<script>
+const footerTips = {
+  en:["Explore new regions for insight.","Check coverage locally."],
+  es:["Explora nuevas regiones para información.","Verifica cobertura localmente."],
+  fr:["Explorez de nouvelles régions pour obtenir des informations.","Vérifiez la couverture locale."],
+  zh:["探索新区域以获取信息。","检查本地覆盖情况。"],
+  ar:["استكشف مناطق جديدة للحصول على معلومات.","تحقق من التغطية المحلية."],
+  hi:["नई क्षेत्रों का अन्वेषण करें।","स्थानीय कवरेज की जाँच करें।"]
+};
+
+const footerSelect = document.getElementById("footerLanguageSelect");
+const footerTip = document.getElementById("footerDailyTip");
+
+function updateFooterTip(code){
+  const tips = footerTips[code] || footerTips["en"];
+  footerTip.textContent = tips[new Date().getDate() % tips.length];
+}
+
+// Initialize
+updateFooterTip("en");
+
+// Change on select
+footerSelect.addEventListener("change", ()=>{
+  updateFooterTip(footerSelect.value);
+});
+</script>
+<!-- ====== LANGUAGE SELECTOR END ====== -->

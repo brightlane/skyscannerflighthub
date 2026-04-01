@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skyscanner Flights & Global Travel Lookup</title>
-<meta name="description" content="Find cheap flights, explore destinations worldwide, and compare travel deals with Skyscanner. Interactive tips and lookup for countries, cities, and area codes.">
+<title>Skyscanner Flights & Travel Lookup</title>
+<meta name="description" content="Find cheap flights, compare travel deals, and explore destinations worldwide with Skyscanner. Start your adventure now!">
 <meta name="keywords" content="Skyscanner, cheap flights, flight deals, flight comparison, travel booking, airline prices, flight search, cheap airfare, vacation destinations, international flights">
 <meta name="author" content="Brightlane Skyscanner Flight Desk">
 <meta name="robots" content="index, follow">
@@ -20,28 +20,6 @@
     "@type": "SearchAction",
     "target": "https://is.gd/et9lWW?query={search_term_string}",
     "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TravelAction",
-  "agent": {
-    "@type": "Organization",
-    "name": "Skyscanner",
-    "url": "https://skyscanner.net"
-  },
-  "object": {
-    "@type": "Trip",
-    "name": "Flight Search & Deals",
-    "url": "https://is.gd/et9lWW"
-  },
-  "result": {
-    "@type": "Offer",
-    "name": "Cheap Flights",
-    "url": "https://is.gd/et9lWW"
   }
 }
 </script>
@@ -72,20 +50,24 @@
 </script>
 
 <style>
-body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
-section, header, footer { max-width:900px; margin:0 auto; }
+body { font-family: 'Arial', sans-serif; margin:0; padding:0; background:#f2f4f7; color:#333; }
+header, section, footer { max-width:1000px; margin:0 auto; padding:0 20px; }
 h1,h2,h3,h4 { margin:10px 0; }
-p { margin:10px 0; }
-ul { margin:10px 0 10px 20px; }
-.btn-cta { background:#ffcc00; color:#000; padding:15px 30px; font-weight:bold; text-decoration:none; border-radius:5px; display:inline-block; margin:10px 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-.btn-cta:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
-.lookup-widget { margin:15px 0; }
-.lookup-widget input, .lookup-widget select { padding:10px; width:100%; margin:5px 0; border-radius:4px; border:1px solid #ccc; }
-.lookup-widget button { padding:10px 15px; border:none; background:#0077cc; color:#fff; border-radius:4px; cursor:pointer; transition: transform 0.2s ease; }
+p, li { margin:10px 0; line-height:1.6; }
+ul { margin-left:20px; }
+.btn-cta { background: linear-gradient(90deg,#00aaff,#0077cc); color:#fff; padding:15px 30px; font-weight:bold; text-decoration:none; border-radius:25px; display:inline-block; margin:10px 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.btn-cta:hover { transform: scale(1.05); box-shadow:0 6px 15px rgba(0,0,0,0.25);}
+.lookup-widget { margin:15px 0; background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.lookup-widget input, .lookup-widget select { padding:12px; width:100%; margin:5px 0; border-radius:6px; border:1px solid #ccc; }
+.lookup-widget button { padding:12px 20px; border:none; background:#00aaff; color:#fff; border-radius:6px; cursor:pointer; transition: transform 0.2s ease; }
 .lookup-widget button:hover { transform: scale(1.03); }
-.countdown-box, .tip-box, .faq-box { background:#fff; padding:20px; border-radius:8px; margin:15px 0; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
-#stickyCTA { position:fixed; bottom:20px; right:20px; z-index:9999; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
-#progressBar { position:fixed; top:0; left:0; width:0%; height:5px; background:#ffcc00; z-index:9999; transition: width 0.25s ease; }
+.tip-box, .seo-box { background:#fff; padding:20px; border-radius:10px; margin:15px 0; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+#stickyCTA { position:fixed; bottom:20px; right:20px; z-index:9999; box-shadow:0 4px 15px rgba(0,0,0,0.3); border-radius:25px; }
+#progressBar { position:fixed; top:0; left:0; width:0%; height:5px; background:#00aaff; z-index:9999; transition: width 0.25s ease; }
+.hero { background:#00aaff; color:#fff; text-align:center; padding:80px 20px; border-radius:0 0 30px 30px; }
+.hero h1 { font-size:2.5rem; }
+.hero p { font-size:1.2rem; max-width:700px; margin:0 auto 20px; }
+.hero .btn-cta { font-size:1.2rem; padding:18px 40px;}
 </style>
 </head>
 <body>
@@ -95,14 +77,14 @@ ul { margin:10px 0 10px 20px; }
 Skyscanner flights, flight comparison, cheap airfare, travel deals, low-cost flights, international destinations, airline tickets, vacation deals, flight search engine
 </div>
 
-<!-- SCROLL PROGRESS BAR -->
+<!-- Scroll Progress -->
 <div id="progressBar"></div>
 
-<!-- HERO SECTION -->
-<header style="background:#0077cc;color:#fff;padding:60px 20px;text-align:center;">
-  <h1>Find Flights & Explore Destinations with Skyscanner</h1>
-  <p>Compare cheap flights worldwide, plan your trips, and discover city and country info with our interactive tools.</p>
-  <a href="https://is.gd/et9lWW" class="btn-cta" id="mainCTA" target="_blank">Search Flights on Skyscanner →</a>
+<!-- HERO PROMOTION -->
+<header class="hero">
+  <h1>Find Cheap Flights Worldwide with Skyscanner</h1>
+  <p>Compare airline prices, discover the best deals, and start planning your next adventure today. Click below to search now!</p>
+  <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Search Flights →</a>
 </header>
 
 <section>
@@ -154,41 +136,23 @@ Skyscanner flights, flight comparison, cheap airfare, travel deals, low-cost fli
     💡 Travel Tip: <span id="dailyTip"></span>
   </div>
 
-  <!-- Skyscanner Info Box -->
-  <div class="tip-box">
-    ✈️ <strong>Why Use Skyscanner?</strong><br>
-    Skyscanner helps you find cheap flights, compare airline prices, and discover the best deals for your next trip. Start your adventure today!  
-    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Search Flights Now →</a>
+  <!-- SEO & Skyscanner Promotion Boxes -->
+  <div class="seo-box">
+    <h2>Why Use Skyscanner?</h2>
+    <p>Skyscanner helps you find cheap flights, compare airline prices, and discover the best travel deals worldwide. Start your journey now!</p>
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Search Flights →</a>
   </div>
 
-  <!-- SEO Content Blocks -->
-  <div class="tip-box">
-    <h2>Discover Cheap Flights Worldwide</h2>
-    <p>Looking for the best travel deals? Skyscanner helps you compare airline prices across hundreds of airlines and travel agencies. Find cheap flights to top destinations like <strong>New York</strong>, <strong>London</strong>, <strong>Tokyo</strong>, <strong>Paris</strong>, and more.</p>
-    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Search Flights Now →</a>
-  </div>
-
-  <div class="tip-box">
-    <h2>Compare Flights in Seconds</h2>
-    <p>Use Skyscanner to instantly compare flights by price, duration, and airline. Whether it’s a last-minute trip or a planned vacation, get the best value for your money. Start your flight comparison today!</p>
-    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Compare Flights →</a>
-  </div>
-
-  <div class="tip-box">
+  <div class="seo-box">
     <h2>Top Travel Destinations</h2>
-    <p>Explore popular destinations worldwide. Skyscanner makes it easy to check flights to Europe, Asia, North America, and beyond. Plan your adventure and find amazing deals to the world’s most visited cities.</p>
+    <p>Plan trips to popular destinations like New York, London, Tokyo, Paris, and more. Skyscanner gives you the best prices and options.</p>
     <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Plan Your Trip →</a>
   </div>
 
-  <div class="tip-box">
-    <h2>Travel Tips & Tricks</h2>
-    <ul>
-      <li>Book flights early to save money.</li>
-      <li>Use flexible dates to find cheaper fares.</li>
-      <li>Check multiple airports for better options.</li>
-      <li>Sign up for alerts on flight price drops.</li>
-    </ul>
-    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Find Best Deals →</a>
+  <div class="seo-box">
+    <h2>Compare Flights in Seconds</h2>
+    <p>Quickly compare flights by price, duration, and airline. Skyscanner makes it easy to find the best deals for your travel dates.</p>
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Compare Flights →</a>
   </div>
 </section>
 
@@ -197,7 +161,7 @@ Skyscanner flights, flight comparison, cheap airfare, travel deals, low-cost fli
 
 <footer>
   <p>Dynamic interactive content worldwide. Fully multilingual.</p>
-  <p>&copy; 2026 DynamicLookup.com | Powered by <a href="https://skyscanner.net" target="_blank">Skyscanner</a></p>
+  <p>&copy; 2026 Brightlane Skyscanner Flight Desk | Powered by <a href="https://skyscanner.net" target="_blank">Skyscanner</a></p>
 </footer>
 
 <script>
@@ -245,7 +209,7 @@ function getTipByLanguage(code){
 }
 setLanguage();
 
-// Countries
+// Country, City, Area Code, Search Engine logic (same as previous)
 const supportedCountries = ["United States","Canada","United Kingdom","France","Germany","China","Japan","Australia"];
 function checkCountry(){
   const input = document.getElementById("countrySearch").value.trim();
@@ -254,8 +218,6 @@ function checkCountry(){
   const found = supportedCountries.includes(input);
   msg.innerHTML = found ? `✅ Available in <strong>${input}</strong>` : `✅ Coverage likely available — try any location.`;
 }
-
-// Cities
 const supportedCities=["New York","Los Angeles","London","Paris","Tokyo","Beijing","Sydney","Toronto"];
 const cityData = {
   "New York": { population: 8419600, rank: 1 },
@@ -284,8 +246,6 @@ function checkCity(){
     rankMsg.textContent = `Population/rank info not available for ${input}.`;
   }
 }
-
-// Area Codes
 const supportedAreaCodes=["212","213","310","416","02","20"];
 function checkAreaCode(){
   const input=document.getElementById("areaCodeSearch").value.trim();
@@ -294,8 +254,6 @@ function checkAreaCode(){
   const found=supportedAreaCodes.includes(input);
   msg.innerHTML = found ? `✅ Available in <strong>${input}</strong> area.` : `✅ Likely available — check nearby area.`;
 }
-
-// Search Engines
 const searchEngines = [
   {name:"Google",url:"https://www.google.com"},
   {name:"Bing",url:"https://www.bing.com"},
@@ -309,12 +267,9 @@ searchEngines.forEach(se=>{
   opt.textContent=se.name;
   searchSelect.appendChild(opt);
 });
-function visitSearchEngine(){
-  const url = searchSelect.value;
-  window.open(url,"_blank");
-}
+function visitSearchEngine(){ const url = searchSelect.value; window.open(url,"_blank"); }
 
-// Sticky CTA
+// CTA clicks
 document.getElementById("mainCTA").onclick = ()=>window.open("https://is.gd/et9lWW","_blank");
 document.getElementById("stickyCTA").onclick = ()=>window.open("https://is.gd/et9lWW","_blank");
 </script>

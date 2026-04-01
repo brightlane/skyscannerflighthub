@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flight Finder - Compare Flights Worldwide | Best Airline Deals</title>
-<meta name="description" content="Compare flight prices worldwide with Flight Finder. Get today’s estimated prices, yesterday’s price ranges, and top airline deals. Book your flight easily.">
+<title>Skyscanner Flights & Global Travel Lookup</title>
+<meta name="description" content="Find cheap flights, explore destinations worldwide, and compare travel deals with Skyscanner. Interactive tips and lookup for countries, cities, and area codes.">
+<meta name="keywords" content="Skyscanner, cheap flights, flight deals, flight comparison, travel booking, airline prices, flight search, cheap airfare, vacation destinations, international flights">
+<meta name="author" content="Brightlane Skyscanner Flight Desk">
 <meta name="robots" content="index, follow">
 
 <!-- Structured Data for SEO -->
@@ -12,185 +14,309 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Flight Finder",
-  "url": "https://is.gd/et9lWW",
+  "name": "Skyscanner Flight Desk",
+  "url": "https://brightlane.github.io/skyscanner-flight-desk/",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://is.gd/et9lWW?q={query}",
-    "query-input": "required name=query"
+    "target": "https://is.gd/et9lWW?query={search_term_string}",
+    "query-input": "required name=search_term_string"
   }
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TravelAction",
+  "agent": {
+    "@type": "Organization",
+    "name": "Skyscanner",
+    "url": "https://skyscanner.net"
+  },
+  "object": {
+    "@type": "Trip",
+    "name": "Flight Search & Deals",
+    "url": "https://is.gd/et9lWW"
+  },
+  "result": {
+    "@type": "Offer",
+    "name": "Cheap Flights",
+    "url": "https://is.gd/et9lWW"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can I find cheap flights?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use Skyscanner to compare airline prices and check flexible dates to find the cheapest flights."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I compare flights from multiple airports?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Skyscanner allows you to check multiple airports to find the best flight options."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin:0; padding:0;
-  background: linear-gradient(135deg, #0c1d3a, #162b5b);
-  color:#f4f4f4;
-}
-main { max-width:900px; margin:20px auto; padding:20px; }
-section {
-  margin-bottom:30px;
-  padding:22px;
-  background: linear-gradient(145deg,#1e2a4d,#283763);
-  border-radius:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-section:hover { transform: translateY(-4px); box-shadow:0 15px 30px rgba(0,0,0,0.6); }
-
-h1 a { color:#00b0ff; text-decoration:none; font-size:1.8rem; }
-h1 a:hover { color:#00e0ff; text-decoration:underline; }
-.current-date {
-  display:block;
-  font-size:0.85rem;
-  color:#66c2ff;
-  margin-top:5px;
-  margin-bottom:15px;
-}
-h2 { color:#00b0ff; margin-top:35px; margin-bottom:12px; }
-h2 a { color:inherit; text-decoration:none; }
-h2 a:hover { text-decoration:underline; }
-
-.daily-tip {
-  background: linear-gradient(90deg,#ffeb3b,#ffd740);
-  color:#000;
-  padding:14px;
-  border-radius:12px;
-  margin:14px 0;
-  font-weight:bold;
-  cursor:pointer;
-  text-align:center;
-  box-shadow:0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
-.daily-tip:hover {
-  transform: translateY(-5px);
-  box-shadow:0 8px 24px rgba(0,0,0,0.5);
-  background: linear-gradient(90deg,#ffd740,#ffeb3b);
-}
-
-ul { margin-left:20px; }
-ul li a { color:#00b0ff; text-decoration:none; transition: color 0.3s; display:flex; align-items:center; }
-ul li a:hover { color:#00e0ff; text-decoration:underline; }
-.airline-logo { width:28px; vertical-align:middle; margin-right:8px; transition: transform 0.3s; }
-ul li a:hover .airline-logo { transform: scale(1.1); }
-
-#cheap-deals div, #trending-routes div {
-  cursor:pointer;
-  padding:12px;
-  border-radius:10px;
-  margin:6px 0;
-  background: linear-gradient(120deg,#1e2a4d,#283763);
-  transition: background 0.3s, transform 0.2s;
-  display:flex; align-items:center; font-weight:bold;
-}
-#cheap-deals div:hover, #trending-routes div:hover {
-  background: linear-gradient(120deg,#00b0ff,#00e0ff);
-  color:#000;
-  transform: translateX(6px);
-}
-#cheap-deals div::before, #trending-routes div::before {
-  content:'✈️';
-  margin-right:8px;
-  font-size:1.1rem;
-}
-
-#flight-widget {
-  position: fixed; top:20px; right:20px;
-  width:320px;
-  background: linear-gradient(135deg, rgba(0,62,128,0.95), rgba(0,92,180,0.95));
-  color:#fff;
-  padding:22px;
-  border-radius:18px;
-  box-shadow:0 15px 38px rgba(0,0,0,0.6);
-  z-index:999;
-}
-#flight-widget h3 { margin-top:0; font-size:16px; color:#fff; }
-#flight-widget input { width:100%; padding:10px; margin-top:8px; border-radius:8px; border:none; }
-#flight-widget button { width:100%; margin-top:12px; background:#0090e0; color:#fff; border:none; padding:10px; border-radius:8px; cursor:pointer; font-weight:bold; transition: background 0.3s; }
-#flight-widget button:hover { background:#00b0ff; }
-#flight-answer { margin-top:12px; background:#fff; color:#000; padding:10px; border-radius:8px; font-size:14px; cursor:pointer; }
-
-@media screen and (max-width: 768px){
-  #flight-widget { width:90%; right:5%; top:auto; bottom:20px; }
-}
-
-footer { text-align:center; padding:20px; font-size:14px; color:#aaa; }
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f9fa; color:#333; }
+section, header, footer { max-width:900px; margin:0 auto; }
+h1,h2,h3,h4 { margin:10px 0; }
+p { margin:10px 0; }
+ul { margin:10px 0 10px 20px; }
+.btn-cta { background:#ffcc00; color:#000; padding:15px 30px; font-weight:bold; text-decoration:none; border-radius:5px; display:inline-block; margin:10px 0; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.btn-cta:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+.lookup-widget { margin:15px 0; }
+.lookup-widget input, .lookup-widget select { padding:10px; width:100%; margin:5px 0; border-radius:4px; border:1px solid #ccc; }
+.lookup-widget button { padding:10px 15px; border:none; background:#0077cc; color:#fff; border-radius:4px; cursor:pointer; transition: transform 0.2s ease; }
+.lookup-widget button:hover { transform: scale(1.03); }
+.countdown-box, .tip-box, .faq-box { background:#fff; padding:20px; border-radius:8px; margin:15px 0; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+#stickyCTA { position:fixed; bottom:20px; right:20px; z-index:9999; box-shadow:0 4px 15px rgba(0,0,0,0.3); }
+#progressBar { position:fixed; top:0; left:0; width:0%; height:5px; background:#ffcc00; z-index:9999; transition: width 0.25s ease; }
 </style>
 </head>
 <body>
 
-<nav style="text-align:center; margin-bottom:20px;">
-  <button onclick="window.open('https://is.gd/et9lWW','_blank')">English</button>
-  <button onclick="window.open('https://is.gd/et9lWW','_blank')">中文</button>
-  <button onclick="window.open('https://is.gd/et9lWW','_blank')">Русский</button>
-  <button onclick="window.open('https://is.gd/et9lWW','_blank')">Español</button>
-  <button onclick="window.open('https://is.gd/et9lWW','_blank')">Français</button>
-</nav>
-
-<main>
-<section>
-  <h1><a href="https://is.gd/et9lWW" target="_blank">Flight Finder - Compare Today’s Best Prices</a></h1>
-  <span class="current-date"></span>
-  <p>Use our <a href="https://is.gd/et9lWW" target="_blank">Flight Finder</a> to compare prices on 200+ global routes. Get estimated prices today and yesterday's range to make informed booking decisions.</p>
-
-  <div class="daily-tip" onclick="window.open('https://is.gd/et9lWW','_blank')">
-    💡 Click here for today’s top flight deals!
-  </div>
-
-  <h2>Top Airlines & Platforms</h2>
-  <ul>
-    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Delta_Air_Lines_logo.svg" alt="Delta Airlines Logo">Delta</a></li>
-    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Emirates_logo.svg" alt="Emirates Logo">Emirates</a></li>
-    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Qatar_Airways_Logo.svg" alt="Qatar Airways Logo">Qatar Airways</a></li>
-    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/f/fd/British_Airways_Logo.svg" alt="British Airways Logo">British Airways</a></li>
-    <li><a href="https://is.gd/et9lWW" target="_blank"><img class="airline-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Lufthansa_Logo_2018.svg" alt="Lufthansa Logo">Lufthansa</a></li>
-  </ul>
-</section>
-
-<section id="cheap-deals">
-  <h3>💸 Cheap Flights Right Now</h3>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Paris — $430</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → London — $420</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Barcelona — $480</div>
-</section>
-
-<section id="trending-routes">
-  <h3>📈 Trending Routes</h3>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Tokyo</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Rome</div>
-  <div onclick="window.open('https://is.gd/et9lWW','_blank')">NYC → Dubai</div>
-</section>
-</main>
-
-<div id="flight-widget">
-  <h3>Check Flight Price</h3>
-  <input type="text" id="flight-query" placeholder="NYC to Barcelona">
-  <button onclick="window.open('https://is.gd/et9lWW','_blank')">Find Price</button>
-  <div id="flight-answer" onclick="window.open('https://is.gd/et9lWW','_blank')"></div>
-  <p style="font-size:11px; opacity:0.7; text-align:center; margin-top:8px;">
-    ✔️ 120+ airlines compared • Updated every minute
-  </p>
+<!-- Hidden crawlable keywords -->
+<div style="display:none;">
+Skyscanner flights, flight comparison, cheap airfare, travel deals, low-cost flights, international destinations, airline tickets, vacation deals, flight search engine
 </div>
 
+<!-- SCROLL PROGRESS BAR -->
+<div id="progressBar"></div>
+
+<!-- HERO SECTION -->
+<header style="background:#0077cc;color:#fff;padding:60px 20px;text-align:center;">
+  <h1>Find Flights & Explore Destinations with Skyscanner</h1>
+  <p>Compare cheap flights worldwide, plan your trips, and discover city and country info with our interactive tools.</p>
+  <a href="https://is.gd/et9lWW" class="btn-cta" id="mainCTA" target="_blank">Search Flights on Skyscanner →</a>
+</header>
+
+<section>
+  <!-- Language Selection -->
+  <div class="lookup-widget">
+    <label for="languageSelect">Select Language:</label>
+    <select id="languageSelect" onchange="setLanguage()"></select>
+  </div>
+
+  <!-- Country Lookup -->
+  <div class="lookup-widget">
+    <label for="countrySearch">Enter Country:</label>
+    <input type="text" id="countrySearch">
+    <button onclick="checkCountry()">Check</button>
+    <div id="countryMessage"></div>
+  </div>
+
+  <!-- City Lookup -->
+  <div class="lookup-widget">
+    <label for="citySearch">Enter City:</label>
+    <input type="text" id="citySearch">
+    <button onclick="checkCity()">Check</button>
+    <div id="cityMessage"></div>
+  </div>
+
+  <!-- City Population / Ranking -->
+  <div class="lookup-widget">
+    <h4>City Population & Ranking</h4>
+    <div id="cityRankingMessage">Enter a city above to see its population and rank.</div>
+  </div>
+
+  <!-- Area Code Lookup -->
+  <div class="lookup-widget">
+    <label for="areaCodeSearch">Enter Area Code:</label>
+    <input type="text" id="areaCodeSearch">
+    <button onclick="checkAreaCode()">Check</button>
+    <div id="areaCodeMessage"></div>
+  </div>
+
+  <!-- Search Engines -->
+  <div class="lookup-widget">
+    <label for="searchEngineSelect">Select Search Engine:</label>
+    <select id="searchEngineSelect"></select>
+    <button onclick="visitSearchEngine()">Go</button>
+  </div>
+
+  <!-- Daily Tip -->
+  <div class="tip-box">
+    💡 Travel Tip: <span id="dailyTip"></span>
+  </div>
+
+  <!-- Skyscanner Info Box -->
+  <div class="tip-box">
+    ✈️ <strong>Why Use Skyscanner?</strong><br>
+    Skyscanner helps you find cheap flights, compare airline prices, and discover the best deals for your next trip. Start your adventure today!  
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Search Flights Now →</a>
+  </div>
+
+  <!-- SEO Content Blocks -->
+  <div class="tip-box">
+    <h2>Discover Cheap Flights Worldwide</h2>
+    <p>Looking for the best travel deals? Skyscanner helps you compare airline prices across hundreds of airlines and travel agencies. Find cheap flights to top destinations like <strong>New York</strong>, <strong>London</strong>, <strong>Tokyo</strong>, <strong>Paris</strong>, and more.</p>
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Search Flights Now →</a>
+  </div>
+
+  <div class="tip-box">
+    <h2>Compare Flights in Seconds</h2>
+    <p>Use Skyscanner to instantly compare flights by price, duration, and airline. Whether it’s a last-minute trip or a planned vacation, get the best value for your money. Start your flight comparison today!</p>
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Compare Flights →</a>
+  </div>
+
+  <div class="tip-box">
+    <h2>Top Travel Destinations</h2>
+    <p>Explore popular destinations worldwide. Skyscanner makes it easy to check flights to Europe, Asia, North America, and beyond. Plan your adventure and find amazing deals to the world’s most visited cities.</p>
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Plan Your Trip →</a>
+  </div>
+
+  <div class="tip-box">
+    <h2>Travel Tips & Tricks</h2>
+    <ul>
+      <li>Book flights early to save money.</li>
+      <li>Use flexible dates to find cheaper fares.</li>
+      <li>Check multiple airports for better options.</li>
+      <li>Sign up for alerts on flight price drops.</li>
+    </ul>
+    <a href="https://is.gd/et9lWW" class="btn-cta" target="_blank">Find Best Deals →</a>
+  </div>
+</section>
+
+<!-- STICKY CTA -->
+<a href="https://is.gd/et9lWW" id="stickyCTA" class="btn-cta" target="_blank">Search Flights →</a>
+
 <footer>
-  © 2026 <a href="https://is.gd/et9lWW" target="_blank">Flight Finder</a>. Compare, book, and save on flights worldwide.
+  <p>Dynamic interactive content worldwide. Fully multilingual.</p>
+  <p>&copy; 2026 DynamicLookup.com | Powered by <a href="https://skyscanner.net" target="_blank">Skyscanner</a></p>
 </footer>
 
 <script>
-// Live Current Date
-function updateCurrentDate(){
-  const now = new Date();
-  const dateString = now.toLocaleDateString(undefined,{
-    weekday:'long', year:'numeric', month:'long', day:'numeric',
-    hour:'2-digit', minute:'2-digit', second:'2-digit'
-  });
-  document.querySelectorAll('.current-date').forEach(el=>el.textContent=dateString);
+// Scroll Progress
+window.onscroll = function() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (scrollTop / scrollHeight) * 100;
+  document.getElementById("progressBar").style.width = scrolled + "%";
+};
+
+// Languages
+let languages = [
+  {code:"en",name:"English"},
+  {code:"es",name:"Spanish"},
+  {code:"fr",name:"French"},
+  {code:"zh",name:"Chinese"},
+  {code:"ar",name:"Arabic"},
+  {code:"hi",name:"Hindi"}
+];
+const languageSelect = document.getElementById("languageSelect");
+languages.forEach(lang=>{
+  const opt=document.createElement("option");
+  opt.value=lang.code;
+  opt.textContent=lang.name;
+  languageSelect.appendChild(opt);
+});
+function setLanguage(){
+  const code = languageSelect.value;
+  document.getElementById("dailyTip").textContent = getTipByLanguage(code);
 }
-updateCurrentDate();
-setInterval(updateCurrentDate,1000);
+
+// Daily Tips
+function getTipByLanguage(code){
+  const tipsByLang = {
+    "en":["Explore new regions for insight.","Check coverage locally."],
+    "es":["Explora nuevas regiones para información.","Verifica cobertura localmente."],
+    "fr":["Explorez de nouvelles régions pour obtenir des informations.","Vérifiez la couverture locale."],
+    "zh":["探索新区域以获取信息。","检查本地覆盖情况。"],
+    "ar":["استكشف مناطق جديدة للحصول على معلومات.","تحقق من التغطية المحلية."],
+    "hi":["नई क्षेत्रों का अन्वेषण करें।","स्थानीय कवरेज की जाँच करें।"]
+  };
+  const tips = tipsByLang[code] || tipsByLang["en"];
+  return tips[new Date().getDate()%tips.length];
+}
+setLanguage();
+
+// Countries
+const supportedCountries = ["United States","Canada","United Kingdom","France","Germany","China","Japan","Australia"];
+function checkCountry(){
+  const input = document.getElementById("countrySearch").value.trim();
+  const msg = document.getElementById("countryMessage");
+  if(!input){ msg.textContent="Enter a country."; return; }
+  const found = supportedCountries.includes(input);
+  msg.innerHTML = found ? `✅ Available in <strong>${input}</strong>` : `✅ Coverage likely available — try any location.`;
+}
+
+// Cities
+const supportedCities=["New York","Los Angeles","London","Paris","Tokyo","Beijing","Sydney","Toronto"];
+const cityData = {
+  "New York": { population: 8419600, rank: 1 },
+  "Los Angeles": { population: 3980400, rank: 2 },
+  "London": { population: 8982000, rank: 3 },
+  "Paris": { population: 2148000, rank: 4 },
+  "Tokyo": { population: 13929286, rank: 5 },
+  "Beijing": { population: 21542000, rank: 6 },
+  "Sydney": { population: 5312000, rank: 7 },
+  "Toronto": { population: 2732000, rank: 8 }
+};
+function checkCity(){
+  const input = document.getElementById("citySearch").value.trim();
+  const msg = document.getElementById("cityMessage");
+  const rankMsg = document.getElementById("cityRankingMessage");
+  if(!input){
+    msg.textContent="Enter a city.";
+    rankMsg.textContent="Enter a city above to see its population and rank.";
+    return;
+  }
+  const found = supportedCities.includes(input);
+  msg.innerHTML = found ? `✅ Available in <strong>${input}</strong>` : `✅ Likely available — try in this city.`;
+  if(cityData[input]){
+    rankMsg.innerHTML = `📊 <strong>${input}</strong> has a population of <strong>${cityData[input].population.toLocaleString()}</strong> and is ranked #${cityData[input].rank} globally.`;
+  } else {
+    rankMsg.textContent = `Population/rank info not available for ${input}.`;
+  }
+}
+
+// Area Codes
+const supportedAreaCodes=["212","213","310","416","02","20"];
+function checkAreaCode(){
+  const input=document.getElementById("areaCodeSearch").value.trim();
+  const msg=document.getElementById("areaCodeMessage");
+  if(!input){ msg.textContent="Enter an area code."; return; }
+  const found=supportedAreaCodes.includes(input);
+  msg.innerHTML = found ? `✅ Available in <strong>${input}</strong> area.` : `✅ Likely available — check nearby area.`;
+}
+
+// Search Engines
+const searchEngines = [
+  {name:"Google",url:"https://www.google.com"},
+  {name:"Bing",url:"https://www.bing.com"},
+  {name:"Yahoo",url:"https://www.yahoo.com"},
+  {name:"DuckDuckGo",url:"https://duckduckgo.com"}
+];
+const searchSelect=document.getElementById("searchEngineSelect");
+searchEngines.forEach(se=>{
+  const opt=document.createElement("option");
+  opt.value=se.url;
+  opt.textContent=se.name;
+  searchSelect.appendChild(opt);
+});
+function visitSearchEngine(){
+  const url = searchSelect.value;
+  window.open(url,"_blank");
+}
+
+// Sticky CTA
+document.getElementById("mainCTA").onclick = ()=>window.open("https://is.gd/et9lWW","_blank");
+document.getElementById("stickyCTA").onclick = ()=>window.open("https://is.gd/et9lWW","_blank");
 </script>
 </body>
 </html>

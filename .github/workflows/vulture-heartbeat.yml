@@ -1,24 +1,27 @@
 name: Vulture 10K Sync
 on:
   schedule:
-    - cron: '0 * * * *' # Runs every hour
-  workflow_dispatch: # Allows manual trigger
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # Updated to Node 24
+          
       - name: Run Vulture Engine
         run: node vulture-engine.js
+        
       - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Vulture Sync: $(date) [Skip CI]" || exit 0
-          git push
+          git commit -m "Vulture Sync [Skip CI]" || exit 0
+          git push origin main

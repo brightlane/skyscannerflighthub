@@ -8,31 +8,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Forces write access
+      contents: write
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      
+      - name: Fix Git LongPaths
+        run: git config --global core.longpaths true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24'
 
-      - name: Clean Ghost Files
-        # This deletes any file in the root that shouldn't be there
+      - name: Emergency Cleanup
+        # This deletes the specific long-named files that are breaking your build
         run: |
-          find . -maxdepth 1 -name "To maximize your SEO*" -delete
-          find . -maxdepth 1 -name "Step 1: Create*" -delete
+          rm -f "To maximize"* || true
+          rm -f "Step 1"* || true
+          rm -f "the run failed"* || true
 
       - name: Run Vulture Engine
         run: node vulture-engine.js
 
-      - name: Force Commit and Push
+      - name: Commit and Push
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          # The || true prevents the build from failing if there are no changes
-          git commit -m "Vulture Sync [Skip CI]" || true
-          git push origin main --force
+          git commit -m "Vulture Reset Sync [Skip CI]" || exit 0
+          git push origin main

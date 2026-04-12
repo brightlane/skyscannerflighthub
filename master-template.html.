@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{INTENT}} {{CITY}} | Live Airfare Audit</title>
+    <meta name="description" content="Real-time flight pricing for {{CITY}}. Automated terminal analysis updated every 60 minutes. Current fare estimate: {{PRICE}}.">
+    
+    <style>
+        :root { --brand: #00D7F1; --dark: #05203C; --cta: #00A698; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; background: #F1F2F8; color: var(--dark); }
+        header { background: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; }
+        .hero { background: var(--dark); color: white; padding: 60px 5%; text-align: center; }
+        .card { max-width: 800px; margin: -40px auto 40px; background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .price-badge { font-size: 32px; font-weight: bold; color: var(--brand); margin: 20px 0; }
+        .btn { background: var(--cta); color: white; padding: 18px 30px; text-decoration: none; border-radius: 4px; font-weight: bold; display: block; text-align: center; transition: 0.3s; }
+        .btn:hover { background: #008477; }
+        .status-bar { font-size: 12px; color: #666; margin-top: 20px; display: flex; align-items: center; gap: 10px; }
+        .live-dot { height: 8px; width: 8px; background: #28a745; border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+        .route-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 30px; }
+        .route-grid a { font-size: 13px; color: var(--brand); text-decoration: none; border: 1px solid #eee; padding: 8px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-weight: bold; font-size: 1.2rem;">SKYSCANNER <span style="color:var(--brand)">FLIGHT DESK</span></div>
+    <div style="font-size: 0.9rem;">Terminal: {{AIRPORT}}</div>
+</header>
+
+<div class="hero">
+    <h1>{{CITY}} ({{AIRPORT}}) Airfare Intelligence</h1>
+    <p>Automated market analysis of the lowest available fares to {{CITY}}.</p>
+</div>
+
+<div class="card">
+    <h3>Real-Time Route Analysis</h3>
+    <p>Our Vulture Engine has scanned global inventory for the most cost-effective routing to <strong>{{CITY}}</strong>. Below is the current market audit.</p>
+    
+    <div class="price-badge">{{PRICE}}</div>
+    
+    <a href="http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885" class="btn">VIEW CURRENT LIVE FARES</a>
+
+    <div class="status-bar">
+        <span class="live-dot"></span>
+        <span>STATUS: LIVE</span> | 
+        <span>LAST AUDIT: {{DATE}}</span> |
+        <span>REF: 21885</span>
+    </div>
+
+    <hr style="margin: 40px 0; border: 0; border-top: 1px solid #eee;">
+    
+    <h4>Nearby Market Connections</h4>
+    <div class="route-grid">
+        {{RELATED_LINKS}}
+    </div>
+</div>
+
+</body>
+</html>

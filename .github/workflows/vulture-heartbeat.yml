@@ -1,7 +1,5 @@
 name: Vulture 10K Sync
 on:
-  schedule:
-    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -12,28 +10,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Fix Git LongPaths
+      - name: System Fix
         run: git config --global core.longpaths true
-
-      - name: Setup Node.js
+        
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-
-      - name: Emergency Cleanup
-        # This deletes the specific long-named files that are breaking your build
-        run: |
-          rm -f "To maximize"* || true
-          rm -f "Step 1"* || true
-          rm -f "the run failed"* || true
-
-      - name: Run Vulture Engine
+          
+      - name: Run Engine
         run: node vulture-engine.js
-
-      - name: Commit and Push
+        
+      - name: Force Push
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "action@github.com"
           git add .
-          git commit -m "Vulture Reset Sync [Skip CI]" || exit 0
+          git commit -m "System Clean & Sync" || exit 0
           git push origin main

@@ -4,53 +4,57 @@ const path = require('path');
 const rootDir = process.cwd();
 const BASE_URL = 'https://brightlane.github.io/skyscanner-flight-desk/';
 
-const CITIES = ["London", "Paris", "New York", "Tokyo", "Dubai", "Singapore", "Rome", "Bangkok", "Istanbul", "Seoul", "Barcelona", "Madrid", "Milan", "Vietnam", "Bali", "Sydney", "Toronto", "Berlin", "Amsterdam", "Athens"];
-const FLIGHT_KEYS = ["cheap-flights-to-", "best-airfare-to-", "last-minute-flights-to-"];
+const CITIES = ["London", "Paris", "New York", "Tokyo", "Dubai", "Singapore", "Rome", "Bangkok", "Istanbul", "Seoul"];
+const FLIGHT_KEYS = ["cheap-flights-to-", "best-airfare-to-"];
 
 async function runVultureEngine() {
-    console.log("🚀 Vulture Engine: Starting 10K Build...");
+    console.log("🚀 Starting Vulture Sync...");
 
-    // Ensure templates exist
-    if (!fs.existsSync('master-template.html') || !fs.existsSync('blog-template.html')) {
-        console.error("❌ Missing templates! Ensure master-template.html and blog-template.html are in root.");
-        process.exit(1);
-    }
+    // TEMPLATE CHECK
+    const requiredFiles = ['master-template.html', 'blog-template.html'];
+    requiredFiles.forEach(file => {
+        if (!fs.existsSync(file)) {
+            console.error(`❌ ERROR: ${file} is missing from the root folder!`);
+            process.exit(1);
+        }
+    });
 
     const template = fs.readFileSync('master-template.html', 'utf8');
     const blogTemplate = fs.readFileSync('blog-template.html', 'utf8');
     let sitemapEntries = [];
 
-    // 1. Generate Fleet
+    // 1. GENERATE PAGES
     CITIES.forEach(city => {
         FLIGHT_KEYS.forEach(intent => {
-            for (let i = 1; i <= 5; i++) {
-                const slug = `${intent}${city.toLowerCase().replace(/ /g, '-')}-${i}.html`;
-                const html = template
-                    .replace(/{{CITY}}/g, city)
-                    .replace(/{{DATE}}/g, new Date().toUTCString())
-                    .replace(/{{PRICE}}/g, `$${Math.floor(Math.random() * 400 + 150)}`);
+            const slug = `${intent}${city.toLowerCase().replace(/ /g, '-')}.html`;
+            const html = template
+                .replace(/{{CITY}}/g, city)
+                .replace(/{{DATE}}/g, new Date().toUTCString())
+                .replace(/{{PRICE}}/g, `$${Math.floor(Math.random() * 300 + 200)}`);
 
-                fs.writeFileSync(path.join(rootDir, slug), html);
-                sitemapEntries.push(`${BASE_URL}${slug}`);
-            }
+            fs.writeFileSync(path.join(rootDir, slug), html);
+            sitemapEntries.push(`${BASE_URL}${slug}`);
         });
     });
 
-    // 2. Generate Blog
-    let blogPostsHtml = '';
-    CITIES.slice(0, 5).forEach(city => {
-        blogPostsHtml += `<div class="post"><h2>Audit: ${city}</h2><p>Live data sync active.</p><a href="cheap-flights-to-${city.toLowerCase()}-1.html">View Fares</a></div>`;
+    // 2. GENERATE BLOG
+    let blogPosts = '';
+    CITIES.slice(0, 3).forEach(city => {
+        blogPosts += `<div class="post"><h2>Audit: ${city}</h2><a href="cheap-flights-to-${city.toLowerCase()}.html">View</a></div>`;
     });
-    const finalBlog = blogTemplate.replace(/{{BLOG_POSTS}}/g, blogPostsHtml).replace(/{{DATE}}/g, new Date().toUTCString());
+    const finalBlog = blogTemplate.replace(/{{BLOG_POSTS}}/g, blogPosts).replace(/{{DATE}}/g, new Date().toUTCString());
     fs.writeFileSync('blog.html', finalBlog);
 
-    // 3. Generate Sitemap
+    // 3. GENERATE SITEMAP (This creates the URL you need)
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
-    sitemapEntries.forEach(url => { xml += `\n  <url><loc>${url}</loc><priority>0.8</priority></url>`; });
+    xml += `\n  <url><loc>${BASE_URL}</loc><priority>1.0</priority></url>`;
+    sitemapEntries.forEach(url => {
+        xml += `\n  <url><loc>${url}</loc><priority>0.8</priority></url>`;
+    });
     xml += `\n</urlset>`;
     fs.writeFileSync('sitemap.xml', xml);
 
-    console.log(`✅ Build Complete. ${sitemapEntries.length} pages generated.`);
+    console.log("✅ Engine finished. Pages, Blog, and Sitemap created.");
 }
 
 runVultureEngine();

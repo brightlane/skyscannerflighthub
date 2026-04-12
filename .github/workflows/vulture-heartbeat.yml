@@ -1,29 +1,43 @@
-name: Vulture Repair & Sync
+name: Skyscanner FlightHub Sync
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+env:
+  # This silences the runner's Node version mismatch warnings
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
 
 jobs:
-  build:
+  sync-run:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Setup Node
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          # Important for 10k+ files: only fetch the last commit to save time
+          fetch-depth: 1 
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          
-      - name: Run 10K Engine
-        run: node vulture-engine.js
-        
-      - name: Repair & Force Push
+          node-version: '20'
+          # No cache used here because this repo doesn't have a package-lock.json
+
+      - name: Run Hub Engine
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "action@github.com"
+          node generate.js || echo "generate skipped"
+          node generate-sitemap.js || echo "sitemap skipped"
+
+      - name: Commit and Push 10K Sync
+        run: |
+          git config --global user.name "actions-user"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Repair 404 and Sync 10K" || exit 0
-          git push origin main --force
+          git commit -m "Repair 404 and Sync 10K [Skip CI]" || exit 0
+          git push

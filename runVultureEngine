@@ -1,0 +1,17 @@
+// This creates a random footer for every page so every page links to others
+const getRandomLinks = (allSlugs, currentSlug) => {
+    return allSlugs
+        .filter(s => s !== currentSlug)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 8); // 8 random internal links per page
+};
+
+// ... inside the generation loop ...
+const relatedSlugs = getRandomLinks(allGeneratedSlugs, filename);
+let footerHtml = '<div class="route-grid">';
+relatedSlugs.forEach(r => {
+    footerHtml += `<a href="${r}">${r.replace(/-/g, ' ').replace('.html', '')}</a>`;
+});
+footerHtml += '</div>';
+
+const finalHtml = html.replace(/{{RELATED_LINKS}}/g, footerHtml);

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyscanner Flight Desk Blog | Live Travel Intelligence</title>
+    <style>
+        :root { --brand: #00D7F1; --dark: #05203C; --cta: #00A698; }
+        body { font-family: sans-serif; margin: 0; background: #F9FAFB; color: #333; line-height: 1.6; }
+        header { background: var(--dark); color: white; padding: 20px 5%; text-align: center; }
+        .nav { background: white; padding: 10px; border-bottom: 1px solid #ddd; text-align: center; }
+        .nav a { margin: 0 15px; text-decoration: none; color: var(--dark); font-weight: bold; }
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .blog-grid { display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .post-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid #eee; }
+        .post-content { padding: 30px; }
+        .post-content h2 { color: var(--dark); margin-top: 0; }
+        .tag { background: var(--brand); color: var(--dark); padding: 4px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
+        .footer { background: var(--dark); color: white; padding: 40px; text-align: center; margin-top: 50px; }
+        .btn-small { color: var(--cta); font-weight: bold; text-decoration: none; border: 2px solid var(--cta); padding: 8px 20px; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; }
+        .btn-small:hover { background: var(--cta); color: white; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Flight Desk <span style="color:var(--brand)">Chronicles</span></h1>
+    <p>Automated Market Reports & Global Travel Insights</p>
+</header>
+
+<div class="nav">
+    <a href="index.html">Live Desk</a>
+    <a href="sitemap.xml">Sitemap</a>
+    <a href="http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885">Book Flights</a>
+</div>
+
+<div class="container">
+    <div class="blog-grid">
+        {{BLOG_POSTS}}
+    </div>
+</div>
+
+<div class="footer">
+    <p>&copy; 2026 Skyscanner Flight Desk | Powered by Vulture 10K</p>
+    <small>Real-time data synchronization active: {{DATE}}</small>
+</div>
+
+</body>
+</html>

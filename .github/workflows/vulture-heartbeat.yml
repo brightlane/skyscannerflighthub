@@ -1,6 +1,8 @@
-name: Vulture 10K Sync
+name: Vulture Repair & Sync
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build:
@@ -10,21 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: System Fix
-        run: git config --global core.longpaths true
-        
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '24'
           
-      - name: Run Engine
+      - name: Run 10K Engine
         run: node vulture-engine.js
         
-      - name: Force Push
+      - name: Repair & Force Push
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "action@github.com"
           git add .
-          git commit -m "System Clean & Sync" || exit 0
-          git push origin main
+          git commit -m "Repair 404 and Sync 10K" || exit 0
+          git push origin main --force

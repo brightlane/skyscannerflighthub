@@ -1,0 +1,24 @@
+{
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": [
+      "/sitemap.xml",
+      "/robots.txt",
+      "/assets/*",
+      "/css/*",
+      "/js/*"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/sitemap.xml",
+      "serve": "/sitemap.xml",
+      "statusCode": 200
+    },
+    {
+      "route": "/robots.txt",
+      "serve": "/robots.txt",
+      "statusCode": 200
+    }
+  ]
+}

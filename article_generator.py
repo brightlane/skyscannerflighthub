@@ -1,8 +1,6 @@
 import os
 import random
 import datetime
-import subprocess
-from git import Repo
 
 # Directory where articles will be stored
 ARTICLE_DIR = 'articles'
@@ -10,10 +8,6 @@ os.makedirs(ARTICLE_DIR, exist_ok=True)
 
 # Your affiliate link
 affiliate_link = "https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885"
-
-# GitHub repository
-REPO_PATH = '/path/to/your/local/repo'  # Replace with your local repository path
-repo = Repo(REPO_PATH)
 
 # Dynamic article content generation
 def generate_article(number):
@@ -77,17 +71,10 @@ def generate_html_article(article_number):
         file.write(html_content)
     print(f"Article generated: {article_title}")
 
-# Function to commit and push the changes to GitHub
-def commit_and_push_changes():
-    repo.git.add(ARTICLE_DIR)
-    repo.git.commit(m="Generate new articles")
-    repo.git.push('origin', 'main')  # Replace 'main' with the branch name you're using
-
 # Generate 288 articles
 def generate_bulk_articles():
     for i in range(1, 289):
         generate_html_article(i)
-    commit_and_push_changes()
 
 if __name__ == "__main__":
     generate_bulk_articles()

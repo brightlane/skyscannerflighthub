@@ -1,26 +1,9 @@
-# ==========================================
-# VULTURE 10K ENGINE - ROBOTS CONTROL
-# ==========================================
-
 User-agent: *
 Allow: /
-Allow: /*.html
-Disallow: /vulture-db.json
-Disallow: /master-template.html
-Disallow: /vulture-engine.js
 
-# Specific Bot Optimization for 2026
-User-agent: GPTBot
-Allow: /
+# Block admin or private folders (optional)
+Disallow: /admin/
+Disallow: /private/
 
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-# Sitemap Indexing - CRITICAL for 10k Fleet
-Sitemap: https://brightlane.github.io/skyscanner-flight-desk/sitemap.xml
-
-# Crawl-delay for aggressive bots to protect GitHub Actions stability
-Crawl-delay: 1
+# Sitemap for global indexing
+Sitemap: https://yourdomain.com/sitemap.xml

@@ -1,0 +1,45 @@
+name: International SEO Engine
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      # 3. Generate international articles (US/UK/EU)
+      - name: Generate international articles
+        run: python engine_geo_builder.py
+
+      # 4. Generate multi-region sitemaps
+      - name: Generate multi sitemap
+        run: python engine_geo_sitemap.py
+
+      # 5. Commit changes
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add .
+
+          git diff --cached --quiet && echo "No changes" && exit 0
+
+          git commit -m "international SEO update"
+          git push

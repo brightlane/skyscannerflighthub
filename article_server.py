@@ -3,6 +3,7 @@ import datetime
 import random
 import schedule
 import time
+import paramiko
 from flask import Flask, send_from_directory
 
 # Set up Flask
@@ -15,9 +16,15 @@ os.makedirs(ARTICLE_DIR, exist_ok=True)
 # Your affiliate link
 affiliate_link = "https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885"
 
+# FTP server configuration
+FTP_HOST = 'your_ftp_host.com'  # Replace with your FTP server host
+FTP_PORT = 22  # SFTP uses port 22
+FTP_USERNAME = 'your_username'
+FTP_PASSWORD = 'your_password'
+REMOTE_DIRECTORY = '/path/to/remote/folder'  # Where the article will be uploaded
+
 # Generate a 400-word article about Skyscanner
 def generate_article():
-    # List of daily article introductions about Skyscanner
     introductions = [
         "Skyscanner is a popular travel search engine that helps you find the best flight deals.",
         "Looking for a cheap flight? Skyscanner is one of the most trusted platforms to compare airfares.",
@@ -25,10 +32,8 @@ def generate_article():
         "Skyscanner is a great tool for finding flights, hotels, and even car rentals, offering a seamless travel experience."
     ]
     
-    # Randomly select an introduction
     intro = random.choice(introductions)
 
-    # Create a 400-word article (expandable content)
     body_content = f"""
     {intro} It compares prices from over 1,200 airlines and online travel agencies, ensuring that you find the best deals.
     Skyscanner's platform is user-friendly, allowing you to filter flights based on departure times, airlines, and other preferences. 
@@ -47,14 +52,10 @@ def generate_article():
 
 # Function to generate the HTML file and save it to disk
 def generate_html_article():
-    # Get the current date to name the article
     today = datetime.date.today()
     article_title = f"Skyscanner_Article_{today}.html"
-    
-    # Generate the article content
     article_content = generate_article()
 
-    # HTML structure for the article
     html_content = f"""
     <!DOCTYPE html>
     <html lang="en">
@@ -79,14 +80,35 @@ def generate_html_article():
     </body>
     </html>
     """
-    
-    # Save the article in the generated_articles folder
+
     article_path = os.path.join(ARTICLE_DIR, article_title)
     with open(article_path, 'w', encoding='utf-8') as file:
         file.write(html_content)
     print(f"Article generated: {article_title}")
+    
+    # Upload the article to your FTP server
+    upload_article_to_ftp(article_path)
 
-# Set up a Flask route to serve generated articles
+# Function to upload article to FTP
+def upload_article_to_ftp(local_file_path):
+    try:
+        # Create an SFTP client
+        transport = paramiko.Transport((FTP_HOST, FTP_PORT))
+        transport.connect(username=FTP_USERNAME, password=FTP_PASSWORD)
+        sftp = paramiko.SFTPClient.from_transport(transport)
+
+        # Upload file to the remote directory
+        remote_file_path = os.path.join(REMOTE_DIRECTORY, os.path.basename(local_file_path))
+        sftp.put(local_file_path, remote_file_path)
+        print(f"Article uploaded to {remote_file_path}")
+
+        sftp.close()
+        transport.close()
+
+    except Exception as e:
+        print(f"Error uploading file to FTP: {e}")
+
+# Set up Flask route to serve generated articles
 @app.route('/articles/<filename>')
 def serve_article(filename):
     return send_from_directory(ARTICLE_DIR, filename)
@@ -101,10 +123,8 @@ def schedule_daily_task():
 
 # Run Flask app and scheduling task in parallel
 if __name__ == "__main__":
-    # Start the scheduling task in a separate thread
     import threading
     task_thread = threading.Thread(target=schedule_daily_task)
     task_thread.start()
     
-    # Start the Flask web server
     app.run(debug=True, use_reloader=False)  # use_reloader=False to prevent running the task twice

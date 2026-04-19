@@ -1,0 +1,160 @@
+import os
+import random
+import datetime
+
+# Directory where articles will be stored
+ARTICLE_DIR = 'articles'
+os.makedirs(ARTICLE_DIR, exist_ok=True)  # Create the directory if it doesn't exist
+
+# Your affiliate link
+affiliate_link = "https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885"
+
+# List of 100 article topics
+topics = [
+    "The Best Time to Book Flights for the Cheapest Deals",
+    "How Skyscanner Helps You Find the Cheapest Flights",
+    "Exploring Budget Travel: How to Find Affordable Flights",
+    "Skyscanner vs. Other Travel Sites: Which is Best for Flights?",
+    "How to Use Skyscanner's Price Alerts to Save on Flights",
+    "Comparing Airlines: Finding the Best Deals on Skyscanner",
+    "How to Plan a Last-Minute Trip Using Skyscanner",
+    "Skyscanner Tips: How to Get Free Baggage on Budget Airlines",
+    "How Skyscanner Makes Multi-City Travel Easy",
+    "Skyscanner’s Most Popular Routes for Summer Travel",
+    "Exploring Skyscanner’s Travel Inspiration Features",
+    "Best Skyscanner Deals for European Flights",
+    "How to Find the Best Airline Seat Options with Skyscanner",
+    "Skyscanner vs. Google Flights: Which One Offers Better Deals?",
+    "How to Search for Cheapest Flights on Skyscanner",
+    "The Ultimate Guide to Booking Family Flights on Skyscanner",
+    "Skyscanner Reviews: What Travelers Are Saying",
+    "Skyscanner’s Top Routes for International Travel",
+    "How to Use Skyscanner for Solo Travel",
+    "Booking Budget-Friendly Flights on Skyscanner",
+    "How Skyscanner Makes Finding Connecting Flights Easy",
+    "Tips for Booking Flights for Big Groups with Skyscanner",
+    "How to Track Flight Prices Using Skyscanner’s App",
+    "Skyscanner’s Guide to Airport Transfers",
+    "How to Find Last-Minute Flight Deals on Skyscanner",
+    "Finding the Cheapest Weekend Getaways with Skyscanner",
+    "Skyscanner Deals for Students: How to Travel on a Budget",
+    "How Skyscanner Helps You Find Deals on Hotels and Car Rentals",
+    "Skyscanner’s Top Destinations for Budget Travelers",
+    "How to Plan a Long-Distance Trip Using Skyscanner",
+    "The Best Time of Year to Visit Popular Destinations Using Skyscanner",
+    "How Skyscanner Helps You Find Cheap First-Class Flights",
+    "Skyscanner’s Tips for Booking Flights with Flexible Dates",
+    "How to Use Skyscanner’s 'Explore Everywhere' Feature for Budget Travel",
+    "How to Find the Cheapest Flights for Your Dream Vacation",
+    "How Skyscanner Saves You Time When Booking Flights",
+    "Skyscanner’s Best Features for First-Time Travelers",
+    "How to Book Round-Trip Flights on Skyscanner",
+    "Skyscanner’s Guide to Finding Deals on Business Class Flights",
+    "Finding the Best Budget Airlines Using Skyscanner",
+    "How Skyscanner Makes Booking Flights for Business Travel Easy",
+    "Using Skyscanner to Find Flights with Free Cancellation",
+    "Skyscanner’s Best Deals for Winter Vacations",
+    "How to Use Skyscanner’s Map View to Explore Travel Deals",
+    "How to Find Deals for Popular European Destinations on Skyscanner",
+    "Skyscanner for Digital Nomads: How to Find Affordable Flights",
+    "How Skyscanner Helps You Find Hidden Travel Gems",
+    "How Skyscanner Finds the Best Deals for Honeymooners",
+    "Skyscanner’s Guide to Airport Lounges and Amenities",
+    "How to Find Deals on Flights to Asia Using Skyscanner",
+    "Skyscanner's Tips for Finding the Best Deals on Regional Flights",
+    "How to Book Flights to Festivals with Skyscanner",
+    "Skyscanner’s Best Deals for Affordable Family Vacations",
+    "How to Find Flights to Off-the-Beaten-Path Destinations with Skyscanner",
+    "Skyscanner for Frequent Flyers: How to Maximize Your Savings",
+    "Using Skyscanner to Compare Airline Ticket Prices",
+    "How to Book a Budget-Friendly Luxury Vacation Using Skyscanner",
+    "Skyscanner’s Hidden Features: What You Didn’t Know",
+    "How Skyscanner Helps You Find Flight Deals During Holiday Seasons",
+    "How to Save Money on Airfare with Skyscanner’s ‘Incognito’ Feature",
+    "Using Skyscanner to Plan Your Dream Road Trip",
+    "Skyscanner's Most Affordable Routes for Students",
+    "How to Find the Best Deals on Skyscanner for Solo Backpackers",
+    "Exploring Skyscanner’s Deals for Adventure Travelers",
+    "Skyscanner’s Guide to Booking Flights to Popular Destinations",
+    "How to Find Flights to Africa Using Skyscanner",
+    "Skyscanner vs. Kayak: Which One is Better for Cheap Flights?",
+    "How Skyscanner Helps You Find Flights for Large Families",
+    "Skyscanner’s Top Travel Hacks for Budget Flyers",
+    "How to Find Flights for Special Events with Skyscanner",
+    "Skyscanner’s Tips for Getting the Best Flight Deals for Christmas",
+    "How to Book Eco-Friendly Flights Using Skyscanner",
+    "Skyscanner’s Most Popular Budget Travel Destinations",
+    "How to Use Skyscanner’s Flexible Dates Feature for Cheap Flights",
+    "Skyscanner's Secrets to Booking Cheap Flights to Asia",
+    "How to Get the Best Last-Minute Flight Deals on Skyscanner",
+    "How Skyscanner Finds the Best Airline Offers for Long Haul Flights",
+    "How to Avoid Common Mistakes When Booking Flights with Skyscanner",
+    "Skyscanner's Best Deals for Ski Trips",
+    "The Cheapest Flights for Your Next European Adventure with Skyscanner",
+    "How to Travel on a Budget with Skyscanner’s Deals",
+    "Skyscanner’s Tips for Traveling with Kids",
+    "How to Use Skyscanner for Booking Multi-City Flights",
+    "Skyscanner for Seasonal Travel: How to Find Holiday Deals",
+    "How to Track Flight Prices Using Skyscanner’s Price Alerts",
+    "How Skyscanner Helps You Plan Budget-Friendly Getaways",
+    "The Cheapest Flights to Australia Using Skyscanner",
+    "How to Use Skyscanner’s Travel Inspiration Tool",
+    "Skyscanner's Tips for Booking Cheap Flights to Popular Cities",
+    "How Skyscanner Compares Airline Prices",
+    "The Best Deals for Flights to South America on Skyscanner",
+    "How Skyscanner Helps You Plan Your Dream European Vacation",
+    "Skyscanner’s Secret to Booking Flights with Free Extra Luggage",
+    "How to Use Skyscanner’s Airline Filters",
+    "Skyscanner’s Best Deals for Exotic Beach Destinations",
+    "The Top Skyscanner Destinations for 2023",
+    "How to Book Flights to Europe in Peak Season with Skyscanner",
+    "How Skyscanner Helps You Find Flights with Flexible Cancellations",
+    "How to Use Skyscanner’s Price Alerts for Last-Minute Travel Deals"
+]
+
+# Function to generate article content based on the topic
+def generate_article_content(topic):
+    content = f"""
+    <h2>{topic}</h2>
+    <p>Skyscanner is a powerful tool for finding the best travel deals. Whether you're looking for flights, hotels, or car rentals, Skyscanner allows you to compare prices from various sources and book the best deals.</p>
+    <p>In this article, we will explore how to make the most of Skyscanner's features and get the best deals for your next trip. {affiliate_link}</p>
+    """
+    return content
+
+# Function to generate the HTML file for each article
+def generate_html_article(article_number, topic):
+    today = datetime.date.today()
+    article_title = f"Skyscanner_Article_{today}_{article_number}.html"
+    
+    article_content = generate_article_content(topic)
+
+    # Full HTML structure
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{topic} - Skyscanner Travel</title>
+    </head>
+    <body>
+        <header>
+            <h1>{topic}</h1>
+        </header>
+        
+        <main>
+            {article_content}
+        </main>
+        
+        <footer>
+            <p>Thank you for reading! Visit <a href="{affiliate_link}" target="_blank">Skyscanner</a> for amazing travel deals.</p>
+        </footer>
+    </body>
+    </html>
+    """
+
+    article_path = os.path.join(ARTICLE_DIR, article_title)
+
+    # Check if the file already exists
+    if os.path.exists(article_path):
+        print(f"Article {

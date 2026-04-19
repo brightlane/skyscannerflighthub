@@ -1,0 +1,53 @@
+name: SEO Engine Automation
+
+on:
+  workflow_dispatch:   # ✅ gives you the RUN button
+  schedule:
+    - cron: "0 0 * * *"  # runs daily (UTC midnight)
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Get repo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      # 3. Run feeder (optional but good for debugging)
+      - name: Generate topics (feeder)
+        run: python engines_feeder.py
+
+      # 4. Build HTML articles
+      - name: Generate articles
+        run: python engine_builder.py
+
+      # 5. Generate RSS feed
+      - name: Generate RSS
+        run: python engine_rss.py
+
+      # 6. Generate sitemap
+      - name: Generate Sitemap
+        run: python engine_sitemap.py
+
+      # 7. Commit everything back to repo
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+          git add .
+
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+
+          git commit -m "SEO engine automated run"
+          git push

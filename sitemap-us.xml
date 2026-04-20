@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
+        <loc>https://yourdomain.com/articles/us_13.html</loc>
+    </url>
+
+    <url>
         <loc>https://yourdomain.com/articles/us_0.html</loc>
     </url>
 
@@ -19,6 +23,10 @@
 
     <url>
         <loc>https://yourdomain.com/articles/us_15.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_21.html</loc>
     </url>
 
     <url>

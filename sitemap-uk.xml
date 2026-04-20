@@ -22,6 +22,10 @@
     </url>
 
     <url>
+        <loc>https://yourdomain.com/articles/uk_16.html</loc>
+    </url>
+
+    <url>
         <loc>https://yourdomain.com/articles/uk_4.html</loc>
     </url>
 
@@ -46,10 +50,22 @@
     </url>
 
     <url>
+        <loc>https://yourdomain.com/articles/uk_0.html</loc>
+    </url>
+
+    <url>
         <loc>https://yourdomain.com/articles/uk_20.html</loc>
     </url>
 
     <url>
         <loc>https://yourdomain.com/articles/uk_21.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/uk_19.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/uk_11.html</loc>
     </url>
 </urlset>

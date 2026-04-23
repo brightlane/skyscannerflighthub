@@ -1,30 +1,115 @@
-<?xml version="1.0"?>
-<urlset>
-<url><loc>https://yourdomain.com/articles/us_7.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_18.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_13.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_4.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_0.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_29.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_24.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_9.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_26.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_1.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_15.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_21.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_22.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_10.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_23.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_11.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_12.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_3.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_20.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_8.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_25.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_19.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_16.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_14.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_28.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_27.html</loc></url>
-<url><loc>https://yourdomain.com/articles/us_6.html</loc></url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_23.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_0.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_11.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_9.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_16.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_18.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_14.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_26.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_28.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_1.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_10.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_25.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_19.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_4.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_7.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_8.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_3.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_21.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_12.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_29.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_15.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_24.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_27.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_6.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_20.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_22.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_13.html</loc>
+    </url>
+
+    <url>
+        <loc>https://yourdomain.com/articles/us_17.html</loc>
+    </url>
 </urlset>

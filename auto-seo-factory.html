@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Auto SEO Factory (10K System)</title>
+
+<style>
+body { font-family: Arial; max-width:1000px; margin:auto; padding:20px; }
+button { padding:12px 18px; margin:5px; background:#0770E3; color:white; border:none; cursor:pointer; }
+.box { background:#f5f6fa; padding:6px; margin-top:5px; font-size:12px; }
+</style>
+</head>
+
+<body>
+
+<h1>Auto SEO Content Factory (10,000 Page System)</h1>
+
+<button onclick="generateAll()">Generate 10,000 Pages</button>
+<button onclick="publishBatch()">Publish Daily Batch (100–200)</button>
+<button onclick="download()">Download Published Pages</button>
+
+<div id="status"></div>
+<div id="output"></div>
+
+<script>
+
+const affiliate = "http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885";
+
+const cities = ["Tokyo","London","Paris","Dubai","Rome","Bangkok","Barcelona","New York","Chicago","Berlin","Madrid","Sydney"];
+const intents = ["cheap flights to","best time to fly to","budget travel guide to","flight deals for","how to save on flights to"];
+
+let allPages = [];
+let published = JSON.parse(localStorage.getItem("published") || "[]");
+
+// RANDOM
+function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+// BUILD ARTICLE
+function buildPage(city, intent, index){
+
+let relatedLinks = published.slice(0,10).map(p =>
+`<li><a href="${p.name}">${p.name}</a></li>`).join("");
+
+return `
+<!DOCTYPE html>
+<html>
+<head>
+<title>${intent} ${city}</title>
+<meta name="description" content="${intent} ${city} guide">
+</head>
+
+<body>
+
+<h1>${intent} ${city}</h1>
+
+<p>
+This guide covers pricing trends, booking strategies, and cost-saving methods for traveling to ${city}.
+</p>
+
+<h2>Strategy</h2>
+<ul>
+<li>Compare airlines</li>
+<li>Use flexible dates</li>
+<li>Monitor pricing</li>
+</ul>
+
+<a href="${affiliate}">Compare Flights</a>
+
+<h3>Related</h3>
+<ul>
+${relatedLinks}
+</ul>
+
+<footer>Page ${index}</footer>
+
+</body>
+</html>
+`;
+}
+
+// GENERATE 10K
+function generateAll(){
+
+allPages = [];
+
+for(let i=0;i<10000;i++){
+let city = rand(cities);
+let intent = rand(intents);
+
+allPages.push({
+  name: city.toLowerCase().replace(/\s/g,'-') + "-" + i + ".html",
+  city,
+  intent,
+  index: i
+});
+}
+
+document.getElementById("status").innerHTML = "10,000 pages generated (not published yet)";
+}
+
+// DAILY PUBLISH (100–200)
+function publishBatch(){
+
+if(allPages.length === 0){
+alert("Generate pages first");
+return;
+}
+
+let batchSize = Math.floor(Math.random() * 100) + 100;
+
+let start = published.length;
+let end = start + batchSize;
+
+let newPages = allPages.slice(start, end);
+
+newPages.forEach(p=>{
+p.content = buildPage(p.city, p.intent, p.index);
+published.push(p);
+});
+
+localStorage.setItem("published", JSON.stringify(published));
+
+let output = "";
+
+newPages.forEach(p=>{
+output += `<div class="box">${p.name}</div>`;
+});
+
+document.getElementById("output").innerHTML = output;
+document.getElementById("status").innerHTML =
+`Published ${published.length} / 10000 pages`;
+}
+
+// DOWNLOAD
+function download(){
+
+published.forEach(p=>{
+const blob = new Blob([p.content], {type:"text/html"});
+const a = document.createElement("a");
+a.href = URL.createObjectURL(blob);
+a.download = p.name;
+a.click();
+});
+
+}
+
+</script>
+
+</body>
+</html>

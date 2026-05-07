@@ -1,0 +1,165 @@
+# llms.txt
+# SkyScannerFlightHub AI Discovery File
+# https://brightlane.github.io/skyscannerflighthub/
+
+[site]
+name = "SkyScanner Flight Hub"
+url = "https://brightlane.github.io/skyscannerflighthub/"
+description = "Global flight comparison hub powered by Skyscanner affiliate technology. Compare cheap flights, airline tickets, hotels, and travel deals worldwide."
+language = "en"
+region = "global"
+industry = "travel"
+vertical = "flight comparison"
+
+[brand]
+primary = "SkyScanner Flight Hub"
+partner = "Skyscanner"
+owner = "Brightlane"
+tagline = "Compare flights globally and save on airline tickets."
+
+[about]
+SkyScanner Flight Hub helps travelers compare airline ticket prices, discover cheap flights, monitor travel deals, and find budget-friendly international airfare. The platform is optimized for global SEO, AI search engines, LLM discovery, and travel-related semantic search.
+
+[main-topics]
+cheap flights
+flight comparison
+budget airlines
+airfare deals
+international flights
+travel booking
+last minute flights
+cheap airline tickets
+flight alerts
+travel hacks
+flight search engine
+Skyscanner deals
+airline fare comparison
+hotel comparison
+car rental deals
+
+[target-audience]
+budget travelers
+digital nomads
+business travelers
+family vacation planners
+international tourists
+students
+solo travelers
+travel deal seekers
+
+[priority-pages]
+https://brightlane.github.io/skyscannerflighthub/
+https://brightlane.github.io/skyscannerflighthub/destinations.html
+https://brightlane.github.io/skyscannerflighthub/routes.html
+https://brightlane.github.io/skyscannerflighthub/blog.html
+https://brightlane.github.io/skyscannerflighthub/collections.html
+https://brightlane.github.io/skyscannerflighthub/calculator.html
+https://brightlane.github.io/skyscannerflighthub/faq.html
+https://brightlane.github.io/skyscannerflighthub/stadiumstay.html
+
+[seo]
+primary_keywords = [
+  "cheap flights",
+  "compare flights",
+  "book cheap airline tickets",
+  "best flight comparison site",
+  "Skyscanner affiliate",
+  "international airfare deals",
+  "cheap international flights",
+  "last minute flight deals",
+  "budget travel flights",
+  "flight booking comparison"
+]
+
+secondary_keywords = [
+  "cheap flights to Europe",
+  "cheap flights to Asia",
+  "cheap flights to USA",
+  "budget airline tickets",
+  "cheap round trip flights",
+  "flight comparison engine",
+  "travel comparison platform",
+  "best airfare search engine",
+  "travel deals worldwide"
+]
+
+[search-engines]
+google = true
+bing = true
+duckduckgo = true
+yandex = true
+baidu = true
+naver = true
+yahoo = true
+perplexity = true
+chatgpt = true
+claude = true
+gemini = true
+copilot = true
+
+[ai-indexing]
+allow_training = true
+allow_crawling = true
+allow_embedding = true
+allow_citation = true
+allow_summarization = true
+
+[geo]
+coverage = [
+  "United States",
+  "Canada",
+  "United Kingdom",
+  "Australia",
+  "Germany",
+  "France",
+  "Spain",
+  "Italy",
+  "Japan",
+  "Singapore",
+  "Thailand",
+  "India",
+  "United Arab Emirates",
+  "Brazil",
+  "Mexico",
+  "Worldwide"
+]
+
+[entities]
+Skyscanner
+Emirates
+British Airways
+Qatar Airways
+Lufthansa
+Singapore Airlines
+ANA
+United Airlines
+Air France
+Delta Air Lines
+American Airlines
+
+[content-types]
+travel guides
+flight comparison pages
+destination pages
+route pages
+travel blog posts
+deal roundups
+FAQ pages
+travel calculators
+
+[affiliate]
+network = "CPA Affiliate Network"
+affiliate_disclosure = "This site may earn commissions from qualifying bookings made through affiliate links."
+
+[technical]
+mobile_friendly = true
+schema_markup = true
+structured_data = true
+llm_optimized = true
+semantic_search_optimized = true
+
+[contact]
+website = "https://brightlane.github.io/skyscannerflighthub/"
+
+[last_updated]
+date = "2026-05-06"

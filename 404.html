@@ -1,24 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compare Cheap Flights Worldwide | Powered by Skyscanner</title>
+
+<meta
+  name="description"
+  content="Compare cheap flights worldwide using Skyscanner technology. Search airline tickets, travel deals, and low airfare prices from 1,200+ airlines instantly."
+>
+
+<meta
+  name="keywords"
+  content="cheap flights, skyscanner flights, compare airline tickets, airfare deals, travel deals, international flights, budget travel, low cost flights"
+>
+
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#05203c">
+
+<link rel="canonical" href="https://yourdomain.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Compare Cheap Flights Worldwide">
+<meta property="og:description" content="Powered by Skyscanner — compare flights and travel deals instantly.">
+<meta property="og:url" content="https://yourdomain.com/">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Compare Cheap Flights Worldwide">
+<meta name="twitter:description" content="Find cheaper flights using Skyscanner technology.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<!-- Schema -->
+<script type="application/ld+json">
 {
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": [
-      "/sitemap.xml",
-      "/robots.txt",
-      "/assets/*",
-      "/css/*",
-      "/js/*"
-    ]
-  },
-  "routes": [
-    {
-      "route": "/sitemap.xml",
-      "serve": "/sitemap.xml",
-      "statusCode": 200
-    },
-    {
-      "route": "/robots.txt",
-      "serve": "/robots.txt",
-      "statusCode": 200
-    }
-  ]
+  "@context":"https://schema.org",
+  "@type":"TravelAgency",
+  "name":"FlightCompare",
+  "description":"Global flight comparison website powered by Skyscanner.",
+  "provider":{
+    "@type":"Organization",
+    "name":"Skyscanner"
+  }
 }
+</script>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:#f5f7fb;
+  color:#0f172a;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:0 20px;
+}
+
+/* HERO */
+
+.hero{
+  background:
+    linear-gradient(
+      135deg,
+      #05203c 0%,
+      #0b3d91 100%
+    );
+  color:white;
+  padding:90px 20px 70px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:rgba(255,255,255,0.05);
+  border-radius:50%;
+  top:-200px;
+  right:-100px;
+}
+
+.badge{
+  display:inline-block;
+  background:rgba(255,255,255,0.12);
+  border:1px solid rgba(255,255,255,0.2);
+  padding:10px 18px;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:26px;
+  backdrop-filter:blur(8px);
+}
+
+.hero h1{
+  font-size:64px;
+  line-height:1;
+  font-weight:900;
+  margin-bottom:22px;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hero h1 span{
+  color:#7dd3fc;
+}
+
+.hero p{
+  max-width:760px;
+  margin:auto;
+  color:rgba(255,255,255,0.82);
+  font-size:20px;
+  line-height:1.7;
+}
+
+/* SEARCH BOX */
+
+.search-box{
+  background:white;
+  max-width:1100px;
+  margin:-50px auto 0;
+  border-radius:28px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.12);
+  padding:34px;
+  position:relative;
+  z-index:5;
+}
+
+.top-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr 1fr auto;
+  gap:14px;
+}
+
+.field{
+  background:#f8fafc;
+  border:2px solid #e2e8f0;
+  border-radius:16px;
+  padding:16px;
+}
+
+.field label{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  color:#64748b;
+  margin-bottom:6px;
+}
+
+.field input{
+  border:none;
+  background:transparent;
+  width:100%;
+  outline:none;
+  font-size:16px;
+  font-weight:700;
+  color:#0f172a;
+}
+
+.search-btn{
+  background:
+    linear-gradient(
+      135deg,
+      #00b4ff,
+      #0070f3
+    );
+  color:white;
+  border:none;
+  border-radius:18px;
+  padding:0 28px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  transition:0.25s;
+  box-shadow:
+    0 10px 30px rgba(0,112,243,0.35);
+}
+
+.search-btn:hover{
+  transform:translateY(-3px);
+}
+
+.trust-row{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:26px;
+}
+
+.trust-pill{
+  background:#eff6ff;
+  color:#0369a1;
+  border-radius:999px;
+  padding:10px 16px;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* FEATURES */
+
+.section{
+  padding:90px 0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:14px;
+}
+
+.section-sub{
+  text-align:center;
+  color:#64748b;
+  max-width:760px;
+  margin:auto auto 50px;
+  line-height:1.7;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:white;
+  border-radius:24px;
+  padding:34px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+  transition:0.25s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+}
+
+.icon{
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  background:#dbeafe;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:22px;
+}
+
+.card h3{
+  font-size:22px;
+  margin-bottom:12px;
+}
+
+.card p{
+  color:#64748b;
+  line-height:1.7;
+}
+
+/* DEALS */
+
+.deals{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.deal{
+  background:white;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+  transition:0.25s;
+}
+
+.deal:hover{
+  transform:translateY(-6px);
+}
+
+.deal-top{
+  height:170px;
+  background:
+    linear-gradient(
+      135deg,
+      #0ea5e9,
+      #1d4ed8
+    );
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+  color:white;
+  font-size:28px;
+  font-weight:900;
+}
+
+.deal-body{
+  padding:24px;
+}
+
+.route{
+  font-size:20px;
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.airline{
+  color:#64748b;
+  margin-bottom:18px;
+}
+
+.price{
+  font-size:38px;
+  font-weight:900;
+  color:#0284c7;
+  margin-bottom:20px;
+}
+
+.book-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  background:#0f172a;
+  color:white;
+  text-decoration:none;
+  padding:15px;
+  border-radius:14px;
+  font-weight:800;
+  transition:0.2s;
+}
+
+.book-btn:hover{
+  background:#1e293b;
+}
+
+/* CTA */
+
+.cta{
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #0b3d91
+    );
+  color:white;
+  border-radius:34px;
+  padding:70px 40px;
+  text-align:center;
+}
+
+.cta h2{
+  font-size:52px;
+  margin-bottom:18px;
+}
+
+.cta p{
+  max-width:760px;
+  margin:auto auto 30px;
+  color:rgba(255,255,255,0.8);
+  line-height:1.8;
+  font-size:18px;
+}
+
+.big-btn{
+  display:inline-block;
+  background:#38bdf8;
+  color:#082f49;
+  padding:20px 38px;
+  border-radius:18px;
+  font-size:20px;
+  font-weight:900;
+  text-decoration:none;
+  box-shadow:
+    0 12px 40px rgba(56,189,248,0.4);
+  transition:0.25s;
+}
+
+.big-btn:hover{
+  transform:translateY(-3px);
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:60px 20px;
+  color:#64748b;
+  font-size:14px;
+}
+
+footer strong{
+  color:#0f172a;
+}
+
+@media(max-width:900px){
+
+  .top-row{
+    grid-template-columns:1fr;
+  }
+
+  .hero h1{
+    font-size:42px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .cta h2{
+    font-size:38px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="badge">
+    ✈ Powered by Skyscanner Technology
+  </div>
+
+  <h1>
+    Find <span>Cheaper Flights</span><br>
+    Anywhere in the World
+  </h1>
+
+  <p>
+    Compare real-time airfare prices from 1,200+ airlines,
+    booking sites, and travel providers using Skyscanner's
+    global flight search network.
+  </p>
+
+</section>
+
+<!-- SEARCH -->
+
+<div class="search-box">
+
+  <div class="top-row">
+
+    <div class="field">
+      <label>From</label>
+      <input type="text" placeholder="New York">
+    </div>
+
+    <div class="field">
+      <label>To</label>
+      <input type="text" placeholder="London">
+    </div>
+
+    <div class="field">
+      <label>Departure</label>
+      <input type="date">
+    </div>
+
+    <div class="field">
+      <label>Return</label>
+      <input type="date">
+    </div>
+
+    <a
+      class="search-btn"
+      href="https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885&utm_source=flightcompare&utm_medium=affiliate&utm_campaign=global_travel_2026"
+      target="_blank"
+      rel="sponsored noopener noreferrer"
+      style="
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      "
+    >
+      Search Flights
+    </a>
+
+  </div>
+
+  <div class="trust-row">
+    <div class="trust-pill">✔ No Hidden Fees</div>
+    <div class="trust-pill">✔ Compare 1,200+ Airlines</div>
+    <div class="trust-pill">✔ Trusted by Millions</div>
+    <div class="trust-pill">✔ Powered by Skyscanner</div>
+  </div>
+
+</div>
+
+<!-- WHY -->
+
+<section class="section">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Why Travelers Use FlightCompare
+    </h2>
+
+    <p class="section-sub">
+      Compare flights faster and discover lower fares instantly.
+      Powered by Skyscanner's global travel comparison engine.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">✈</div>
+
+        <h3>
+          Compare Every Major Airline
+        </h3>
+
+        <p>
+          Search thousands of routes from airlines,
+          booking agencies, and travel providers worldwide.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💸</div>
+
+        <h3>
+          Find Lower Airfare Prices
+        </h3>
+
+        <p>
+          Discover cheaper flights instantly using
+          real-time airfare comparison technology.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌍</div>
+
+        <h3>
+          Global Travel Deals
+        </h3>
+
+        <p>
+          Search domestic and international flights,
+          hotels, and travel offers worldwide.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- DEALS -->
+
+<section class="section" style="padding-top:0">
+
+  <div class="container">
+
+    <h2 class="section-title">
+      Trending Flight Deals
+    </h2>
+
+    <p class="section-sub">
+      Popular routes travelers are searching right now.
+    </p>
+
+    <div class="deals">
+
+      <div class="deal">
+
+        <div class="deal-top">
+          Bali
+        </div>
+
+        <div class="deal-body">
+
+          <div class="route">
+            New York → Bali
+          </div>
+
+          <div class="airline">
+            Singapore Airlines · Roundtrip
+          </div>
+
+          <div class="price">
+            $487
+          </div>
+
+          <a
+            class="book-btn"
+            href="https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885&utm_source=flightcompare&utm_medium=affiliate&utm_campaign=bali_2026"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+          >
+            Compare on Skyscanner →
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="deal">
+
+        <div class="deal-top">
+          Paris
+        </div>
+
+        <div class="deal-body">
+
+          <div class="route">
+            Los Angeles → Paris
+          </div>
+
+          <div class="airline">
+            Air France · Roundtrip
+          </div>
+
+          <div class="price">
+            $312
+          </div>
+
+          <a
+            class="book-btn"
+            href="https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885&utm_source=flightcompare&utm_medium=affiliate&utm_campaign=paris_2026"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+          >
+            Compare on Skyscanner →
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="deal">
+
+        <div class="deal-top">
+          Tokyo
+        </div>
+
+        <div class="deal-body">
+
+          <div class="route">
+            Chicago → Tokyo
+          </div>
+
+          <div class="airline">
+            ANA · Roundtrip
+          </div>
+
+          <div class="price">
+            $562
+          </div>
+
+          <a
+            class="book-btn"
+            href="https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885&utm_source=flightcompare&utm_medium=affiliate&utm_campaign=tokyo_2026"
+            target="_blank"
+            rel="sponsored noopener noreferrer"
+          >
+            Compare on Skyscanner →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="section">
+
+  <div class="container">
+
+    <div class="cta">
+
+      <h2>
+        Compare Flights & Save Money
+      </h2>
+
+      <p>
+        Search millions of airfare combinations and compare
+        airline ticket prices instantly using Skyscanner technology.
+      </p>
+
+      <a
+        class="big-btn"
+        href="https://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885&utm_source=flightcompare&utm_medium=affiliate&utm_campaign=main_cta_2026"
+        target="_blank"
+        rel="sponsored noopener noreferrer"
+      >
+        Search Flights on Skyscanner →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <strong>FlightCompare</strong><br><br>
+
+  Compare cheap flights worldwide using Skyscanner's
+  global travel comparison network.
+
+  <br><br>
+
+  © 2026 FlightCompare
+
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+name: MASTER SEO PIPELINE
+run-name: 🚀 MASTER SEO PIPELINE - ${{ github.actor }} manual run
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Run mode
+        required: true
+        default: full
+        type: choice
+        options:
+          - full
+          - seo-only
+          - generators-only
+
+jobs:
+  run-all:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛰️ Checkout repo
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 🐍 Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+
+      - name: 📦 Install Node dependencies
+        run: |
+          if [ -f package.json ]; then npm ci --no-audit; fi
+
+      - name: 📦 Install Python requirements
+        run: |
+          if [ -f requirements.txt ]; then pip install --no-cache-dir -r requirements.txt; fi
+
+      - name: 🧠 Run SEO Brain (full|seo-only) – tolerate errors
+        if: github.event.inputs.mode == 'full' || github.event.inputs.mode == 'seo-only'
+        run: |
+          node global-autonomous-seo-brain-v900.js || echo "SEO Brain failed but job continues"
+
+      - name: 🦅 Run Vulture Python engines (full)
+        if: github.event.inputs.mode == 'full'
+        run: |
+          python mass_gen.py
+          python vulture_titan_5_12M_global.py
+
+      - name: 📝 Run all article generators (full|generators-only)
+        if: github.event.inputs.mode == 'full' || github.event.inputs.mode == 'generators-only'
+        run: |
+          node generateSkyscannerArticles.js
+          node run-all-generators.js
+
+      - name: 📂 Upload all outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: master-seo-output
+          path: |
+            seo-output.json
+            seo-brain.json
+            vulture-db.json
+            *.html
+            generated-articles/
+          if-no-files-found: warn
